@@ -1,0 +1,2 @@
+C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\ar.exe qc libalgoritms.a CMakeFiles/algoritms.dir/algoritms.c.obj CMakeFiles/algoritms.dir/array/array.c.obj
+C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\ranlib.exe libalgoritms.a
