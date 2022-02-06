@@ -7,12 +7,18 @@
 #IncludeRegexTransform: 
 
 C:/Users/vadim/CLionProjects/untitled3/libs/data_structures/vector/vector.h
-
-C:/Users/vadim/CLionProjects/untitled3/main.c
 stdio.h
 -
-stdint.h
+malloc.h
 -
+stdlib.h
+-
+stdbool.h
+-
+assert.h
+-
+
+C:/Users/vadim/CLionProjects/untitled3/main.c
 libs/data_structures/vector/vector.h
 C:/Users/vadim/CLionProjects/untitled3/libs/data_structures/vector/vector.h
 
