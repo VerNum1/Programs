@@ -45,4 +45,14 @@ void pushBack(vector *v, int x);
 // выводит соответсвующеее сообщение
 void popBack(vector *v);
 
+// возвращает указатель на index-ный элемент вектора v,
+// если указанная позиция в границах вектора
+int *atVector(vector *v, size_t index);
+
+// возвращаеет указатель на последний элемент вектора v
+int* back(vector *v);
+
+// возвращает указатель на нулевой элемент вектора v
+int* front(vector *v);
+
 #endif //UNTITLED3_VECTOR_H

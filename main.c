@@ -35,10 +35,39 @@ void test_popBack_notEmptyVector() {
     assert (v.capacity == 1);
 }
 
+void test_atVector_notEmptyVector(){
+    vector v = {(int[5]){1, 3, 5, 7, 9}, 5, 6};
+
+    assert(*atVector(&v, 1) == 3);
+}
+
+void test_atVector_requestToLastElement(){
+    vector v = {(int[3]){1, 3, 5}, 3, 5};
+
+    assert(*atVector(&v, v.size - 1) == 5);
+}
+
+void test_back_oneElementInVector(){
+    vector v = {(int[1]) {2}, 1, 1};
+
+    assert(*back(&v) == 2);
+}
+
+void test_front_oneElementInVector(){
+    vector v = {(int[1]){2}, 1, 1};
+
+    assert(*front(&v) == 2);
+}
+
 void test() {
     test_pushBack_emptyVector();
     test_pushBack_fullVector();
     test_popBack_notEmptyVector();
+
+    test_atVector_notEmptyVector();
+    test_atVector_requestToLastElement();
+    test_back_oneElementInVector();
+    test_front_oneElementInVector();
 }
 
 int main() {
