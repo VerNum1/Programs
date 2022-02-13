@@ -153,6 +153,30 @@ bitset/bitset.c.s:
 	cd /d C:\Users\vadim\CLionProjects\untitled3\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/bitset/bitset.c.s
 .PHONY : bitset/bitset.c.s
 
+matrix.obj: matrix.c.obj
+.PHONY : matrix.obj
+
+# target to build an object file
+matrix.c.obj:
+	cd /d C:\Users\vadim\CLionProjects\untitled3\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/matrix.c.obj
+.PHONY : matrix.c.obj
+
+matrix.i: matrix.c.i
+.PHONY : matrix.i
+
+# target to preprocess a source file
+matrix.c.i:
+	cd /d C:\Users\vadim\CLionProjects\untitled3\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/matrix.c.i
+.PHONY : matrix.c.i
+
+matrix.s: matrix.c.s
+.PHONY : matrix.s
+
+# target to generate assembly for a file
+matrix.c.s:
+	cd /d C:\Users\vadim\CLionProjects\untitled3\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/matrix.c.s
+.PHONY : matrix.c.s
+
 ordered_array_set/ordered_array_set.obj: ordered_array_set/ordered_array_set.c.obj
 .PHONY : ordered_array_set/ordered_array_set.obj
 
@@ -237,6 +261,9 @@ help:
 	@echo ... bitset/bitset.obj
 	@echo ... bitset/bitset.i
 	@echo ... bitset/bitset.s
+	@echo ... matrix.obj
+	@echo ... matrix.i
+	@echo ... matrix.s
 	@echo ... ordered_array_set/ordered_array_set.obj
 	@echo ... ordered_array_set/ordered_array_set.i
 	@echo ... ordered_array_set/ordered_array_set.s

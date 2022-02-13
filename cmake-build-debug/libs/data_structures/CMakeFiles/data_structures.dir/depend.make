@@ -4,6 +4,9 @@
 libs/data_structures/CMakeFiles/data_structures.dir/bitset/bitset.c.obj: \
  ../libs/data_structures/bitset/bitset.c \
  ../libs/data_structures/bitset/bitset.h
+libs/data_structures/CMakeFiles/data_structures.dir/matrix.c.obj: \
+ ../libs/data_structures/matrix.c \
+ ../libs/data_structures/matrix.h
 libs/data_structures/CMakeFiles/data_structures.dir/ordered_array_set/ordered_array_set.c.obj: \
  ../libs/data_structures/ordered_array_set/ordered_array_set.c \
  ../libs/data_structures/ordered_array_set/ordered_array_set.h

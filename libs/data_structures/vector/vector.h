@@ -50,9 +50,9 @@ void popBack(vector *v);
 int *atVector(vector *v, size_t index);
 
 // возвращаеет указатель на последний элемент вектора v
-int* back(vector *v);
+int *back(vector *v);
 
 // возвращает указатель на нулевой элемент вектора v
-int* front(vector *v);
+int *front(vector *v);
 
 #endif //UNTITLED3_VECTOR_H

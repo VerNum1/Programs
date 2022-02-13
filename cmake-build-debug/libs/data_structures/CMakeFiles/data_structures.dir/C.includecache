@@ -6,19 +6,13 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/vadim/CLionProjects/untitled3/libs/data_structures/vector/vector.c
-vector.h
-C:/Users/vadim/CLionProjects/untitled3/libs/data_structures/vector/vector.h
+C:/Users/vadim/CLionProjects/untitled3/libs/data_structures/matrix.c
+matrix.h
+C:/Users/vadim/CLionProjects/untitled3/libs/data_structures/matrix.h
 
-C:/Users/vadim/CLionProjects/untitled3/libs/data_structures/vector/vector.h
-stdio.h
--
+C:/Users/vadim/CLionProjects/untitled3/libs/data_structures/matrix.h
 malloc.h
 -
 stdlib.h
--
-stdbool.h
--
-assert.h
 -
 
