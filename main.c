@@ -92,8 +92,12 @@ void transposeIfMatrixHasEqualSumOfRows(matrix m) {
         transposeSquareMatrix(m);
 }
 
-// 7 target
+// 6 target
+bool isMutuallyInverseMatrices(matrix m1, matrix m2){
+    matrix m = mulMatrices(m1, m2);
 
+    return (bool) isEMatrix(m);
+}
 
 void test_swapRowsWithMinAndMaxElements_1() {
     matrix haveM = createMatrixFromArray((int[]) {1, 2, 3,
@@ -135,7 +139,7 @@ void test_sortColsByMinElement_1() {
                                                   4, 2, 5,
                                                   7, 3, 6}, 3, 3);
 
-    sortRowsByMinElement(haveM);
+    sortColsByMinElement(haveM);
 
     assert(areTwoMatricesEqual(haveM, needM));
 
@@ -203,6 +207,32 @@ void test_transposeIfMatrixHasNotEqualSumOfRows_2(){
     freeMemMatrix(needM);
 }
 
+void test_isMutuallyInverseMatrices_1(){
+    matrix haveM1 = createMatrixFromArray((int[]) {3, -5,
+                                                  1, -2}, 2, 2);
+
+    matrix haveM2 = createMatrixFromArray((int[]) {2, -5,
+                                                  1, -3}, 2, 2);
+
+    assert(isMutuallyInverseMatrices(haveM1, haveM2) == true);
+
+    freeMemMatrix(haveM1);
+    freeMemMatrix(haveM2);
+}
+
+void test_isMutuallyInverseMatrices_2(){
+    matrix haveM1 = createMatrixFromArray((int[]) {1, 3,
+                                                   1, 2}, 2, 2);
+
+    matrix haveM2 = createMatrixFromArray((int[]) {1, 1,
+                                                   3, 2}, 2, 2);
+
+    assert(isMutuallyInverseMatrices(haveM1, haveM2) == false);
+
+    freeMemMatrix(haveM1);
+    freeMemMatrix(haveM2);
+}
+
 void test() {
     test_swapRowsWithMinAndMaxElements_1();
     test_sortRowsByMinElement_1();
@@ -211,15 +241,12 @@ void test() {
     test_getSquareOfMatrixIfSymmetric_2();
     test_transposeIfMatrixHasNotEqualSumOfRows_1();
     test_transposeIfMatrixHasNotEqualSumOfRows_2();
+    test_isMutuallyInverseMatrices_1();
+    test_isMutuallyInverseMatrices_2();
 }
 
 int main() {
-    matrix m = getMemMatrix(2, 2);
-    inputMatrix(m);
-
-    transposeIfMatrixHasEqualSumOfRows(m);
-
-    outputMatrix(m);
+    test();
 
     return 0;
 }
