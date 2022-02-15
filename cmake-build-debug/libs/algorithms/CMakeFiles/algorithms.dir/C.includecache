@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/vadim/CLionProjects/untitled3/libs/algorithms/algorithms.c
+algorithms.h
+C:/Users/vadim/CLionProjects/untitled3/libs/algorithms/algorithms.h
+
+C:/Users/vadim/CLionProjects/untitled3/libs/algorithms/algorithms.h
+

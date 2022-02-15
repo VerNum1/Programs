@@ -99,7 +99,6 @@ void insertionSortColsMatrixByColCriteria(matrix m, int (*criteria)(int *, int))
                 indexMax = j;
         }
         swap(&criteriaArr[indexMax], &criteriaArr[i]);
-
         swapColumns(m, i, indexMax);
     }
 }
