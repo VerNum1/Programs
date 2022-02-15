@@ -6,6 +6,10 @@ void swap(int *a, int *b) {
     *b = t;
 }
 
+int max(int a, int b){
+    a > b ? a : b;
+}
+
 void selectionSort(int *a, const int size) {
     for (int i = 0; i < size - 1; i++) {
         int minPos = i;
