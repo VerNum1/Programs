@@ -82,18 +82,16 @@ void insertionSortRowsMatrixByRowCriteria(matrix m, int (*criteria)(int *, int))
     }
 }
 
-void getRowFromColumn(matrix m, int position, int *array) {
-    for (int i = 0; i < m.nRows; ++i)
-        array[i] = m.values[i][position];
-}
-
 void insertionSortColsMatrixByColCriteria(matrix m, int (*criteria)(int *, int)) {
     int criteriaArr[m.nCols];
     int column[m.nRows];
+
     for (int i = 0; i < m.nCols; ++i) {
-        getRowFromColumn(m, i, column);
+        for (int j = 0; j < m.nRows; ++j)
+            column[j] = m.values[j][i];
         criteriaArr[i] = criteria(column, m.nRows);
     }
+
     for (int i = 0; i < m.nCols; ++i) {
         int indexMax = i;
         for (int j = i; j < m.nCols; j++) {
