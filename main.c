@@ -9,26 +9,28 @@ void swapRowsWithMinAndMaxElements(matrix m) {
     swapRows(m, minPosition.rowIndex, maxPosition.rowIndex);
 }
 
-int getMax(int *a, const int n) {
+// 2 target
+int getMaxToMin(int *a, int n) {
     int max = a[0];
-    for (int i = 1; i < n; ++i) {
+    for (int i = 0; i < n; ++i) {
         if (a[i] > max)
             max = a[i];
     }
-    return max;
+
+    return -max;
 }
 
-// 2 target
 void sortRowsByMinElement(matrix m) {
-    for (int i = 0; i < m.nRows; ++i) {
-        int maxElement = getMax(m.values[i], m.nCols);
-
-    }
+    insertionSortRowsMatrixByRowCriteria(m, getMaxToMin);
 }
 
 matrix mulMatrices(matrix m1, matrix m2){
-    matrix m = getMemMatrix(m1.nCols, m2.nRows);
-
+    matrix m = getMemMatrix(m1.nRows, m2.nCols);
+    for (int i = 0; i < m1.nRows; ++i) {
+        for (int j = 0; j < m2.nCols; ++j) {
+            m.values[i][j] = m.values[i][j] + m1.values[i][j] * m2.values[i][j];
+        }
+    }
 
     return m;
 }
@@ -37,6 +39,7 @@ void getSquareOfMatrixIfSymmetric(matrix *m){
     if (isSymmetricMatrix(*m))
         *m = mulMatrices(*m, *m);
 }
+
 
 void test_swapRowsWithMinAndMaxElements_1() {
     matrix haveM = createMatrixFromArray((int[]) {1, 2, 3,
@@ -54,16 +57,47 @@ void test_swapRowsWithMinAndMaxElements_1() {
     freeMemMatrix(needM);
 }
 
-void test() {
-    void test_firstTarget_1();
+void test_sortRowsByMinElement_1() {
+    matrix haveM = createMatrixFromArray((int[]) {1, 1, 2,
+                                                  1, 1, 3,
+                                                  1, 1, 1}, 3, 3);
+    matrix needM = createMatrixFromArray((int[]) {1, 1, 1,
+                                                  1, 1, 2,
+                                                  1, 1, 3}, 3, 3);
 
+    sortRowsByMinElement(haveM);
+
+    assert(areTwoMatricesEqual(haveM, needM));
+
+    freeMemMatrix(haveM);
+    freeMemMatrix(needM);
+}
+
+void test_getSquareOfMatrixIfSymmetric_1() {
+    matrix haveM = createMatrixFromArray((int[]) {1, 2,
+                                                     1, 2}, 2, 2);
+
+    matrix needM = createMatrixFromArray((int[]) {3, 6,
+                                                     3, 6}, 2, 2);
+
+    getSquareOfMatrixIfSymmetric(&haveM);
+
+    assert(areTwoMatricesEqual(haveM, needM));
+
+    freeMemMatrix(haveM);
+    freeMemMatrix(needM);
+}
+
+void test() {
+    test_sortRowsByMinElement_1();
+    test_swapRowsWithMinAndMaxElements_1();
 }
 
 int main() {
-    matrix m = getMemMatrix(2, 2);
+    matrix m = getMemMatrix(3, 3);
     inputMatrix(m);
 
-    getSquareOfMatrixIfSymmetric(&m);
+    sortRowsByMinElement(m);
 
     outputMatrix(m);
 
