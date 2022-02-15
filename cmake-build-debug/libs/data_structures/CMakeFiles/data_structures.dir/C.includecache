@@ -21,6 +21,8 @@ stdio.h
 -
 stdbool.h
 -
+assert.h
+-
 ../../algorithms/algorithms.h
 C:/Users/vadim/CLionProjects/untitled3/libs/algorithms/algorithms.h
 
