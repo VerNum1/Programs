@@ -6,13 +6,21 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/vadim/CLionProjects/untitled3/libs/data_structures/matrix.c
-matrix.h
-C:/Users/vadim/CLionProjects/untitled3/libs/data_structures/matrix.h
+C:/Users/vadim/CLionProjects/untitled3/libs/algorithms/algorithms.h
 
-C:/Users/vadim/CLionProjects/untitled3/libs/data_structures/matrix.h
+C:/Users/vadim/CLionProjects/untitled3/libs/data_structures/matrix/matrix.c
+matrix.h
+C:/Users/vadim/CLionProjects/untitled3/libs/data_structures/matrix/matrix.h
+
+C:/Users/vadim/CLionProjects/untitled3/libs/data_structures/matrix/matrix.h
 malloc.h
 -
 stdlib.h
 -
+stdio.h
+-
+stdbool.h
+-
+../../algorithms/algorithms.h
+C:/Users/vadim/CLionProjects/untitled3/libs/algorithms/algorithms.h
 

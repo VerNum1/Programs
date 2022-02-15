@@ -6,6 +6,6 @@ C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/CMakeFiles/rebuild
 C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/data_structures/CMakeFiles/data_structures.dir
 C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/data_structures/CMakeFiles/edit_cache.dir
 C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/data_structures/CMakeFiles/rebuild_cache.dir
-C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/algoritms/CMakeFiles/rebuild_cache.dir
-C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/algoritms/CMakeFiles/algoritms.dir
-C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/algoritms/CMakeFiles/edit_cache.dir
+C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/algorithms/CMakeFiles/algorithms.dir
+C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/algorithms/CMakeFiles/edit_cache.dir
+C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/algorithms/CMakeFiles/rebuild_cache.dir

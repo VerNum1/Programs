@@ -8,7 +8,7 @@
 #include <stdbool.h>
 #include <malloc.h>
 #include <stdlib.h>
-#include "../../algoritms/array/array.h"
+#include "libs/algoritms/array/array.h"
 
 typedef struct unordered_array_set {
     int *data; // элементы множества

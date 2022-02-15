@@ -153,77 +153,29 @@ bitset/bitset.c.s:
 	cd /d C:\Users\vadim\CLionProjects\untitled3\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/bitset/bitset.c.s
 .PHONY : bitset/bitset.c.s
 
-matrix.obj: matrix.c.obj
-.PHONY : matrix.obj
+matrix/matrix.obj: matrix/matrix.c.obj
+.PHONY : matrix/matrix.obj
 
 # target to build an object file
-matrix.c.obj:
-	cd /d C:\Users\vadim\CLionProjects\untitled3\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/matrix.c.obj
-.PHONY : matrix.c.obj
+matrix/matrix.c.obj:
+	cd /d C:\Users\vadim\CLionProjects\untitled3\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/matrix/matrix.c.obj
+.PHONY : matrix/matrix.c.obj
 
-matrix.i: matrix.c.i
-.PHONY : matrix.i
-
-# target to preprocess a source file
-matrix.c.i:
-	cd /d C:\Users\vadim\CLionProjects\untitled3\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/matrix.c.i
-.PHONY : matrix.c.i
-
-matrix.s: matrix.c.s
-.PHONY : matrix.s
-
-# target to generate assembly for a file
-matrix.c.s:
-	cd /d C:\Users\vadim\CLionProjects\untitled3\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/matrix.c.s
-.PHONY : matrix.c.s
-
-ordered_array_set/ordered_array_set.obj: ordered_array_set/ordered_array_set.c.obj
-.PHONY : ordered_array_set/ordered_array_set.obj
-
-# target to build an object file
-ordered_array_set/ordered_array_set.c.obj:
-	cd /d C:\Users\vadim\CLionProjects\untitled3\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/ordered_array_set/ordered_array_set.c.obj
-.PHONY : ordered_array_set/ordered_array_set.c.obj
-
-ordered_array_set/ordered_array_set.i: ordered_array_set/ordered_array_set.c.i
-.PHONY : ordered_array_set/ordered_array_set.i
+matrix/matrix.i: matrix/matrix.c.i
+.PHONY : matrix/matrix.i
 
 # target to preprocess a source file
-ordered_array_set/ordered_array_set.c.i:
-	cd /d C:\Users\vadim\CLionProjects\untitled3\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/ordered_array_set/ordered_array_set.c.i
-.PHONY : ordered_array_set/ordered_array_set.c.i
+matrix/matrix.c.i:
+	cd /d C:\Users\vadim\CLionProjects\untitled3\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/matrix/matrix.c.i
+.PHONY : matrix/matrix.c.i
 
-ordered_array_set/ordered_array_set.s: ordered_array_set/ordered_array_set.c.s
-.PHONY : ordered_array_set/ordered_array_set.s
-
-# target to generate assembly for a file
-ordered_array_set/ordered_array_set.c.s:
-	cd /d C:\Users\vadim\CLionProjects\untitled3\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/ordered_array_set/ordered_array_set.c.s
-.PHONY : ordered_array_set/ordered_array_set.c.s
-
-unordered_array_set/unordered_array_set.obj: unordered_array_set/unordered_array_set.c.obj
-.PHONY : unordered_array_set/unordered_array_set.obj
-
-# target to build an object file
-unordered_array_set/unordered_array_set.c.obj:
-	cd /d C:\Users\vadim\CLionProjects\untitled3\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/unordered_array_set/unordered_array_set.c.obj
-.PHONY : unordered_array_set/unordered_array_set.c.obj
-
-unordered_array_set/unordered_array_set.i: unordered_array_set/unordered_array_set.c.i
-.PHONY : unordered_array_set/unordered_array_set.i
-
-# target to preprocess a source file
-unordered_array_set/unordered_array_set.c.i:
-	cd /d C:\Users\vadim\CLionProjects\untitled3\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/unordered_array_set/unordered_array_set.c.i
-.PHONY : unordered_array_set/unordered_array_set.c.i
-
-unordered_array_set/unordered_array_set.s: unordered_array_set/unordered_array_set.c.s
-.PHONY : unordered_array_set/unordered_array_set.s
+matrix/matrix.s: matrix/matrix.c.s
+.PHONY : matrix/matrix.s
 
 # target to generate assembly for a file
-unordered_array_set/unordered_array_set.c.s:
-	cd /d C:\Users\vadim\CLionProjects\untitled3\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/unordered_array_set/unordered_array_set.c.s
-.PHONY : unordered_array_set/unordered_array_set.c.s
+matrix/matrix.c.s:
+	cd /d C:\Users\vadim\CLionProjects\untitled3\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/matrix/matrix.c.s
+.PHONY : matrix/matrix.c.s
 
 vector/vector.obj: vector/vector.c.obj
 .PHONY : vector/vector.obj
@@ -261,15 +213,9 @@ help:
 	@echo ... bitset/bitset.obj
 	@echo ... bitset/bitset.i
 	@echo ... bitset/bitset.s
-	@echo ... matrix.obj
-	@echo ... matrix.i
-	@echo ... matrix.s
-	@echo ... ordered_array_set/ordered_array_set.obj
-	@echo ... ordered_array_set/ordered_array_set.i
-	@echo ... ordered_array_set/ordered_array_set.s
-	@echo ... unordered_array_set/unordered_array_set.obj
-	@echo ... unordered_array_set/unordered_array_set.i
-	@echo ... unordered_array_set/unordered_array_set.s
+	@echo ... matrix/matrix.obj
+	@echo ... matrix/matrix.i
+	@echo ... matrix/matrix.s
 	@echo ... vector/vector.obj
 	@echo ... vector/vector.i
 	@echo ... vector/vector.s

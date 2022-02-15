@@ -5,7 +5,7 @@
 		<Option title="untitled3"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\libs\;CMake Files\libs\data_structures\;CMake Files\libs\algoritms\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\libs\;CMake Files\libs\data_structures\;CMake Files\libs\algorithms\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug"/>
@@ -109,9 +109,9 @@
 					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/data_structures/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="algoritms">
-				<Option output="C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/algoritms/libalgoritms.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/algoritms"/>
+			<Target title="algorithms">
+				<Option output="C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/algorithms/libalgorithms.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/algorithms"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
@@ -121,15 +121,15 @@
 					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/algoritms/Makefile&quot;  VERBOSE=1 algoritms"/>
-					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/algoritms/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/algoritms/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/algoritms/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/algorithms/Makefile&quot;  VERBOSE=1 algorithms"/>
+					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/algorithms/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/algorithms/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/algorithms/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="algoritms/fast">
-				<Option output="C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/algoritms/libalgoritms.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/algoritms"/>
+			<Target title="algorithms/fast">
+				<Option output="C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/algorithms/libalgorithms.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/algorithms"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
@@ -139,24 +139,24 @@
 					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/algoritms/Makefile&quot;  VERBOSE=1 algoritms/fast"/>
-					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/algoritms/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/algoritms/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/algoritms/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/algorithms/Makefile&quot;  VERBOSE=1 algorithms/fast"/>
+					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/algorithms/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/algorithms/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/algorithms/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/algoritms/algoritms.c">
-			<Option target="algoritms"/>
+		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/algorithms/algorithms.c">
+			<Option target="algorithms"/>
 		</Unit>
-		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/algoritms/algoritms.h">
-			<Option target="algoritms"/>
+		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/algorithms/algorithms.h">
+			<Option target="algorithms"/>
 		</Unit>
-		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/algoritms/array/array.c">
-			<Option target="algoritms"/>
+		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/algorithms/array/array.c">
+			<Option target="algorithms"/>
 		</Unit>
-		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/algoritms/array/array.h">
-			<Option target="algoritms"/>
+		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/algorithms/array/array.h">
+			<Option target="algorithms"/>
 		</Unit>
 		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/data_structures/bitset/bitset.c">
 			<Option target="data_structures"/>
@@ -164,22 +164,12 @@
 		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/data_structures/bitset/bitset.h">
 			<Option target="data_structures"/>
 		</Unit>
-		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/data_structures/matrix.c">
+		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/data_structures/matrix/matrix.c">
+			<Option target="untitled3"/>
 			<Option target="data_structures"/>
 		</Unit>
-		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/data_structures/matrix.h">
-			<Option target="data_structures"/>
-		</Unit>
-		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/data_structures/ordered_array_set/ordered_array_set.c">
-			<Option target="data_structures"/>
-		</Unit>
-		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/data_structures/ordered_array_set/ordered_array_set.h">
-			<Option target="data_structures"/>
-		</Unit>
-		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/data_structures/unordered_array_set/unordered_array_set.c">
-			<Option target="data_structures"/>
-		</Unit>
-		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/data_structures/unordered_array_set/unordered_array_set.h">
+		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/data_structures/matrix/matrix.h">
+			<Option target="untitled3"/>
 			<Option target="data_structures"/>
 		</Unit>
 		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/data_structures/vector/vector.c">
@@ -200,8 +190,8 @@
 		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/data_structures/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\libs\data_structures\"/>
 		</Unit>
-		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/algoritms/CMakeLists.txt">
-			<Option virtualFolder="CMake Files\libs\algoritms\"/>
+		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/algorithms/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\libs\algorithms\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

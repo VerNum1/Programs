@@ -142,17 +142,41 @@ data_structures/fast:
 .PHONY : data_structures/fast
 
 #=============================================================================
-# Target rules for targets named algoritms
+# Target rules for targets named algorithms
 
 # Build rule for target.
-algoritms: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 algoritms
-.PHONY : algoritms
+algorithms: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 algorithms
+.PHONY : algorithms
 
 # fast build rule for target.
-algoritms/fast:
-	$(MAKE) $(MAKESILENT) -f libs\algoritms\CMakeFiles\algoritms.dir\build.make libs/algoritms/CMakeFiles/algoritms.dir/build
-.PHONY : algoritms/fast
+algorithms/fast:
+	$(MAKE) $(MAKESILENT) -f libs\algorithms\CMakeFiles\algorithms.dir\build.make libs/algorithms/CMakeFiles/algorithms.dir/build
+.PHONY : algorithms/fast
+
+libs/data_structures/matrix/matrix.obj: libs/data_structures/matrix/matrix.c.obj
+.PHONY : libs/data_structures/matrix/matrix.obj
+
+# target to build an object file
+libs/data_structures/matrix/matrix.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled3.dir\build.make CMakeFiles/untitled3.dir/libs/data_structures/matrix/matrix.c.obj
+.PHONY : libs/data_structures/matrix/matrix.c.obj
+
+libs/data_structures/matrix/matrix.i: libs/data_structures/matrix/matrix.c.i
+.PHONY : libs/data_structures/matrix/matrix.i
+
+# target to preprocess a source file
+libs/data_structures/matrix/matrix.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled3.dir\build.make CMakeFiles/untitled3.dir/libs/data_structures/matrix/matrix.c.i
+.PHONY : libs/data_structures/matrix/matrix.c.i
+
+libs/data_structures/matrix/matrix.s: libs/data_structures/matrix/matrix.c.s
+.PHONY : libs/data_structures/matrix/matrix.s
+
+# target to generate assembly for a file
+libs/data_structures/matrix/matrix.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled3.dir\build.make CMakeFiles/untitled3.dir/libs/data_structures/matrix/matrix.c.s
+.PHONY : libs/data_structures/matrix/matrix.c.s
 
 main.obj: main.c.obj
 .PHONY : main.obj
@@ -186,9 +210,12 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... algoritms
+	@echo ... algorithms
 	@echo ... data_structures
 	@echo ... untitled3
+	@echo ... libs/data_structures/matrix/matrix.obj
+	@echo ... libs/data_structures/matrix/matrix.i
+	@echo ... libs/data_structures/matrix/matrix.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
