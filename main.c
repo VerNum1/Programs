@@ -42,21 +42,27 @@ void sortColsByMinElement(matrix m) {
 
 // 4 target
 matrix mulMatrices(matrix m1, matrix m2) {
-    matrix m = getMemMatrix(m1.nRows, m2.nCols);
-    for (int i = 0; i < m1.nRows; ++i) {
-        for (int j = 0; j < m2.nCols; ++j) {
-            m.values[i][j] = m.values[i][j] + m1.values[i][j] * m2.values[i][j];
+    matrix m = getMemMatrix(m1.nRows, m1.nCols);
+
+    for (int i = 0; i < m1.nRows; i++)
+        for (int j = 0; j < m2.nCols; j++) {
+            m.values[i][j] = 0;
+            for (int k = 0; k < m1.nCols; k++)
+                m.values[i][j] += m1.values[i][k] * m2.values[k][j];
         }
-    }
 
     return m;
 }
 
 void getSquareOfMatrixIfSymmetric(matrix *m) {
-    if (isSymmetricMatrix(*m))
-        *m = mulMatrices(*m, *m);
-}
+    if (isSymmetricMatrix(*m)) {
+        matrix m1 = mulMatrices(*m, *m);
+        for (int i = 0; i < m->nRows; ++i)
+            for (int j = 0; j < m->nCols; ++j)
+                m->values[i][j] = m1.values[i][j];
 
+    }
+}
 
 void test_swapRowsWithMinAndMaxElements_1() {
     matrix haveM = createMatrixFromArray((int[]) {1, 2, 3,
@@ -108,10 +114,10 @@ void test_sortColsByMinElement_1() {
 
 void test_getSquareOfMatrixIfSymmetric_1() {
     matrix haveM = createMatrixFromArray((int[]) {1, 2,
-                                                  1, 2}, 2, 2);
+                                                  2, 1}, 2, 2);
 
-    matrix needM = createMatrixFromArray((int[]) {3, 6,
-                                                  3, 6}, 2, 2);
+    matrix needM = createMatrixFromArray((int[]) {5, 4,
+                                                  4, 5}, 2, 2);
 
     getSquareOfMatrixIfSymmetric(&haveM);
 
@@ -125,13 +131,14 @@ void test() {
     test_swapRowsWithMinAndMaxElements_1();
     test_sortRowsByMinElement_1();
     test_sortColsByMinElement_1();
+    test_getSquareOfMatrixIfSymmetric_1();
 }
 
 int main() {
-    matrix m = getMemMatrix(3, 3);
+    matrix m = getMemMatrix(2, 2);
     inputMatrix(m);
 
-    sortColsByMinElement(m);
+    getSquareOfMatrixIfSymmetric(&m);
 
     outputMatrix(m);
 
