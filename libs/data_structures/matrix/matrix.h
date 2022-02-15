@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include <assert.h>
 
 #include "../../algorithms/algorithms.h"
 
@@ -64,7 +65,7 @@ bool isSquareMatrix(matrix m);
 
 // возвращает значение ’истина’,
 // если матрицы m1 и m2 равны, ложь – в противном случае.
-bool twoMatricesEqual(matrix m1, matrix m2);
+bool areTwoMatricesEqual(matrix m1, matrix m2);
 
 // возвращает значение ’истина’, если матрица
 // m является единичной, ложь – в противном случае.
@@ -88,10 +89,8 @@ position getMaxValuePos(matrix m);
 matrix createMatrixFromArray(const int *a, int nRows, int nCols);
 
 // возвращает указатель на нулевую матрицу массива из nMatrices матриц, размещенных
-//в динамической памяти, построенных из элементов массива a
+// в динамической памяти, построенных из элементов массива a
 matrix *createArrayOfMatrixFromArray(const int *values, int nMatrices,
                                      int nRows, int nCols);
-
-
 
 #endif //UNTITLED3_MATRIX_H

@@ -40,10 +40,9 @@ void inputMatrices(matrix *ms, int nMatrices) {
 
 void outputMatrix(matrix m) {
     for (int i = 0; i < m.nRows; i++) {
-        for (int j = 0; j < m.nCols; ++j) {
+        for (int j = 0; j < m.nCols; j++)
             printf("%d ", m.values[i][j]);
             printf("\n");
-        }
     }
 }
 
@@ -107,7 +106,7 @@ bool isSquareMatrix(matrix m) {
     return m.nRows == m.nCols;
 }
 
-bool twoMatricesEqual(matrix m1, matrix m2) {
+bool areTwoMatricesEqual(matrix m1, matrix m2) {
     for (int i = 0; i < m1.nRows; ++i)
         for (int j = 0; j < m1.nCols; ++j)
             if (m1.values[i][j] != m2.values[i][j])
@@ -147,21 +146,21 @@ void transposeSquareMatrix(matrix m) {
 }
 
 position getMinValuePos(matrix m) {
-    position minPos = (position){0, 0};
+    position minPos = (position) {0, 0};
     for (int i = 0; i < m.nRows; ++i) {
         for (int j = 1; j < m.nCols; ++j)
             if (m.values[i][j] < m.values[minPos.rowIndex][minPos.colIndex])
-                minPos = (position){i, j};
+                minPos = (position) {i, j};
     }
     return minPos;
 }
 
 position getMaxValuePos(matrix m) {
-    position maxPos = (position){0, 0};
+    position maxPos = (position) {0, 0};
     for (int i = 0; i < m.nRows; ++i) {
         for (int j = 1; j < m.nCols; ++j)
             if (m.values[i][j] > m.values[maxPos.rowIndex][maxPos.colIndex])
-                maxPos = (position){i, j};
+                maxPos = (position) {i, j};
     }
     return maxPos;
 }
