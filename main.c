@@ -259,6 +259,28 @@ void swapPenultimateRow(matrix m) {
     memcpy(m.values[m.nRows - 2], column, sizeof(int) * m.nCols);
 }
 
+// 13 target
+bool isNonDescendingSorted(int *a, int n) {
+    for (int i = 1; i < n; i++)
+        if (a[i] < a[i - 1])
+            return false;
+    return true;
+}
+
+bool hasAllNonDescendingRows(matrix m) {
+    for (size_t i = 0; i < m.nRows; i++)
+        if (!isNonDescendingSorted(m.values[i], m.nCols))
+            return false;
+    return true;
+}
+
+int countNonDescendingRowsMatrices(matrix *ms, int nMatrix) {
+    int numberRightMatrix = 0;
+    for (size_t i = 0; i < nMatrix; i++)
+        numberRightMatrix += hasAllNonDescendingRows(ms[i]);
+
+    return numberRightMatrix;
+}
 
 // tests of targets
 void test_swapRowsWithMinAndMaxElements_1() {
@@ -477,7 +499,7 @@ void test_getNSpecialElement_1() {
 }
 
 void test_swapPenultimateRow_1() {
-    matrix haveM = createMatrixFromArray( (int[]){1, 2, 3,
+    matrix haveM = createMatrixFromArray((int[]) {1, 2, 3,
                                                   4, 5, 6,
                                                   7, 8, 1}, 3, 3);
     swapPenultimateRow(haveM);
@@ -487,6 +509,26 @@ void test_swapPenultimateRow_1() {
                                                   7, 8, 1}, 3, 3);
     assert(areTwoMatricesEqual(haveM, needM));
 
+}
+
+void test_countNonDescendingRowsMatrices_1() {
+    matrix *ms = createArrayOfMatrixFromArray(
+            (int[]) {
+                    7, 1,
+                    1, 1,
+
+                    1, 6,
+                    2, 2,
+
+                    5, 4,
+                    2, 3,
+
+                    1, 3,
+                    7, 9
+            },
+            4, 2, 2);
+
+    assert(countNonDescendingRowsMatrices(ms, 4) == 2);
 }
 
 void test() {
@@ -507,6 +549,7 @@ void test() {
     test_countEqClassesByRowsSum_2_allEqual();
     test_getNSpecialElement_1();
     test_swapPenultimateRow_1();
+    test_countNonDescendingRowsMatrices_1();
 }
 
 int main() {
