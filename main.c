@@ -209,7 +209,10 @@ int countEqClassesByRowsSum(matrix m) {
     return countNUnique(rowsSum, m.nRows);
 }
 
+// 11 target
+int getNSpecialElement(matrix m){
 
+}
 
 // tests of targets
 void test_swapRowsWithMinAndMaxElements_1() {
@@ -406,6 +409,26 @@ void test_countEqClassesByRowsSum_1() {
 
 }
 
+void test_countEqClassesByRowsSum_2_allEqual() {
+    matrix m = createMatrixFromArray((int[]) {7, 1,
+                                              0, 8,
+                                              2, 6,
+                                              3, 5}, 4, 2);
+
+    assert(countEqClassesByRowsSum(m) == 1);
+
+}
+
+void test_getNSpecialElement_1(){
+        matrix m = createMatrixFromArray((int[]) {3, 5, 5, 4,
+                                                  2, 3, 6, 7,
+                                                  12, 2, 1, 2}, 3, 4);
+
+        int totalNSpecialElement = getNSpecialElement(m);
+
+        assert(totalNSpecialElement == 2);
+
+}
 
 
 void test() {
@@ -423,6 +446,8 @@ void test() {
     test_getMinInArea_2_MaxInFirstRow();
     test_sortByDistance_1();
     test_countEqClassesByRowsSum_1();
+    test_countEqClassesByRowsSum_2_allEqual();
+    test_getNSpecialElement_1();
 }
 
 int main() {
