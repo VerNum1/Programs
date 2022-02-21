@@ -117,6 +117,27 @@ int sumMaxOfDiagonalsOfMatrixExceptMainOne(matrix m) {
     return sum;
 }
 
+// 8 target
+int getMinInArea(matrix m) {
+    position maxPos = getMaxValuePos(m);
+    int minElement = m.values[maxPos.rowIndex][maxPos.colIndex];
+    int left = maxPos.colIndex;
+    int right = maxPos.colIndex;
+    for (int i = maxPos.rowIndex - 1; i >= 0; i--) {
+        if (left - 1 >= 0)
+            left--;
+        if (right + 1 < m.nCols)
+            right++;
+        int j = right;
+        while (j >= left) {
+            minElement = min(minElement, m.values[i][j]);
+            j--;
+        }
+    }
+
+    return minElement;
+}
+
 
 // tests of targets
 void test_swapRowsWithMinAndMaxElements_1() {
@@ -264,6 +285,28 @@ void test_sumMaxOfDiagonalsOfMatrixExceptMainOne_1() {
     freeMemMatrix(m);
 }
 
+void test_getMinInArea_1() {
+    matrix m = createMatrixFromArray((int[]) {5, 2, 3,
+                                              4, 4, 6,
+                                              7, 11, 9}, 3, 3);
+    int min = getMinInArea(m);
+
+    assert(min == 2);
+
+    freeMemMatrix(m);
+}
+
+void test_getMinInArea_2_MaxInFirstRow() {
+    matrix m = createMatrixFromArray((int[]) {12, 2, 3,
+                                              4, 4, 6,
+                                              7, 11, 9}, 3, 3);
+    int min = getMinInArea(m);
+
+    assert(min == 12);
+
+    freeMemMatrix(m);
+}
+
 void test() {
     test_swapRowsWithMinAndMaxElements_1();
     test_sortRowsByMinElement_1();
@@ -275,6 +318,8 @@ void test() {
     test_isMutuallyInverseMatrices_1();
     test_isMutuallyInverseMatrices_2();
     test_sumMaxOfDiagonalsOfMatrixExceptMainOne_1();
+    test_getMinInArea_1();
+    test_getMinInArea_2_MaxInFirstRow();
 }
 
 int main() {

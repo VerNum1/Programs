@@ -10,6 +10,10 @@ int max(int a, int b){
     return a > b ? a : b;
 }
 
+int min(int a, int b){
+    return a < b ? a : b;
+}
+
 void selectionSort(int *a, const int size) {
     for (int i = 0; i < size - 1; i++) {
         int minPos = i;
