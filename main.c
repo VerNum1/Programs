@@ -210,9 +210,55 @@ int countEqClassesByRowsSum(matrix m) {
 }
 
 // 11 target
-int getNSpecialElement(matrix m){
-
+int getNSpecialElement(matrix m) {
+    int nSpecialElement = 0;
+    for (size_t j = 0; j < m.nCols; j++) {
+        int specialElement = m.values[0][j];
+        int sumElementInCol = 0;
+        for (size_t i = 1; i < m.nRows; i++) {
+            if (m.values[i][j] > specialElement) {
+                sumElementInCol += specialElement;
+                specialElement = m.values[i][j];
+            } else
+                sumElementInCol += m.values[i][j];
+        }
+        if (specialElement > sumElementInCol)
+            nSpecialElement++;
+    }
+    return nSpecialElement;
 }
+
+// 12 target
+position getLeftMin(matrix m) {
+    int min = m.values[0][0];
+    position minPosition = {0, 0};
+
+    for (int i = 0; i < m.nRows; i++) {
+        for (int j = 0; j < m.nCols; j++) {
+            if (m.values[i][j] < min) {
+                min = m.values[i][j];
+                minPosition = (position) {i, j};
+            }
+        }
+    }
+
+    return minPosition;
+}
+
+void swapPenultimateRow(matrix m) {
+    if (m.nRows <= 1)
+        printf("two or more lines are needed");
+
+    position min = getLeftMin(m);
+    int column[m.nRows];
+
+    for (size_t i = 0; i < m.nRows; i++) {
+        column[i] = m.values[i][min.colIndex];
+    }
+
+    memcpy(m.values[m.nRows - 2], column, sizeof(int) * m.nCols);
+}
+
 
 // tests of targets
 void test_swapRowsWithMinAndMaxElements_1() {
@@ -419,17 +465,29 @@ void test_countEqClassesByRowsSum_2_allEqual() {
 
 }
 
-void test_getNSpecialElement_1(){
-        matrix m = createMatrixFromArray((int[]) {3, 5, 5, 4,
-                                                  2, 3, 6, 7,
-                                                  12, 2, 1, 2}, 3, 4);
+void test_getNSpecialElement_1() {
+    matrix m = createMatrixFromArray((int[]) {3, 5, 5, 4,
+                                              2, 3, 6, 7,
+                                              12, 2, 1, 2}, 3, 4);
 
-        int totalNSpecialElement = getNSpecialElement(m);
+    int totalNSpecialElement = getNSpecialElement(m);
 
-        assert(totalNSpecialElement == 2);
+    assert(totalNSpecialElement == 2);
 
 }
 
+void test_swapPenultimateRow_1() {
+    matrix haveM = createMatrixFromArray( (int[]){1, 2, 3,
+                                                  4, 5, 6,
+                                                  7, 8, 1}, 3, 3);
+    swapPenultimateRow(haveM);
+
+    matrix needM = createMatrixFromArray((int[]) {1, 2, 3,
+                                                  1, 4, 7,
+                                                  7, 8, 1}, 3, 3);
+    assert(areTwoMatricesEqual(haveM, needM));
+
+}
 
 void test() {
     test_swapRowsWithMinAndMaxElements_1();
@@ -448,6 +506,7 @@ void test() {
     test_countEqClassesByRowsSum_1();
     test_countEqClassesByRowsSum_2_allEqual();
     test_getNSpecialElement_1();
+    test_swapPenultimateRow_1();
 }
 
 int main() {
