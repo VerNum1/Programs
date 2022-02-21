@@ -32,3 +32,15 @@ int sumInArray(int *a, const int n){
 
     return sum;
 }
+
+void swap_(void *a, void *b, int size) {
+    char *pa = a;
+    char *pb = b;
+    for (int i = 0; i < size; i++) {
+        char t = *pa;
+        *pa = *pb;
+        *pb = t;
+        pa++;
+        pb++;
+    }
+}

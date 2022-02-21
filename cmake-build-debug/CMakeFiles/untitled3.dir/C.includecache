@@ -7,6 +7,8 @@
 #IncludeRegexTransform: 
 
 C:/Users/vadim/CLionProjects/untitled3/libs/algorithms/algorithms.h
+stdio.h
+-
 
 C:/Users/vadim/CLionProjects/untitled3/libs/data_structures/matrix/matrix.h
 malloc.h
@@ -20,6 +22,8 @@ stdbool.h
 assert.h
 -
 mem.h
+-
+math.h
 -
 ../../algorithms/algorithms.h
 C:/Users/vadim/CLionProjects/untitled3/libs/algorithms/algorithms.h

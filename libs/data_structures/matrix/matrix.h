@@ -7,6 +7,7 @@
 #include <stdbool.h>
 #include <assert.h>
 #include <mem.h>
+#include <math.h>
 
 #include "../../algorithms/algorithms.h"
 

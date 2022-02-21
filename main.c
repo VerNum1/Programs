@@ -120,9 +120,11 @@ int sumMaxOfDiagonalsOfMatrixExceptMainOne(matrix m) {
 // 8 target
 int getMinInArea(matrix m) {
     position maxPos = getMaxValuePos(m);
+
     int minElement = m.values[maxPos.rowIndex][maxPos.colIndex];
     int left = maxPos.colIndex;
     int right = maxPos.colIndex;
+
     for (int i = maxPos.rowIndex - 1; i >= 0; i--) {
         if (left - 1 >= 0)
             left--;
@@ -136,6 +138,36 @@ int getMinInArea(matrix m) {
     }
 
     return minElement;
+}
+
+// 9 target
+float getDistance(int *a, int size) {
+    int distance = 0;
+    for (size_t i = 0; i < size; i++) {
+        distance += a[i];
+    }
+
+    return sqrtf(distance);
+}
+
+void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(int *, int)) {
+    float *criteriaArray = (float *) malloc(sizeof(float) * m.nRows);
+
+    for (int i = 0; i < m.nRows; ++i) {
+        criteriaArray[i] = criteria(m.values[i], m.nCols);
+    }
+    for (int i = 0; i < m.nRows; ++i) {
+        for (int j = i; j > 0 && criteriaArray[j - 1] > criteriaArray[j]; j--) {
+            swap_(&criteriaArray[j - 1], &criteriaArray[j], sizeof(float));
+            swapRows(m, j, j - 1);
+        }
+    }
+
+    free(criteriaArray);
+}
+
+void sortByDistance(matrix m) {
+    insertionSortRowsMatrixByRowCriteriaF(m, getDistance);
 }
 
 
@@ -307,6 +339,19 @@ void test_getMinInArea_2_MaxInFirstRow() {
     freeMemMatrix(m);
 }
 
+void test_sortByDistance_1() {
+    matrix haveM = createMatrixFromArray((int[]) {14, 8, 5, 4,
+                                                  3, 12, 8, 10,
+                                                  6, 1, 9, 2}, 3, 4);
+    sortByDistance(haveM);
+
+    matrix needM = createMatrixFromArray((int[]) {6, 1, 9, 2,
+                                                  3, 12, 8, 10,
+                                                  14, 8, 5, 4}, 3, 4);
+    assert(areTwoMatricesEqual(haveM, needM));
+
+}
+
 void test() {
     test_swapRowsWithMinAndMaxElements_1();
     test_sortRowsByMinElement_1();
@@ -320,6 +365,7 @@ void test() {
     test_sumMaxOfDiagonalsOfMatrixExceptMainOne_1();
     test_getMinInArea_1();
     test_getMinInArea_2_MaxInFirstRow();
+    test_sortByDistance_1();
 }
 
 int main() {
