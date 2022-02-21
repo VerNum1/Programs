@@ -170,6 +170,46 @@ void sortByDistance(matrix m) {
     insertionSortRowsMatrixByRowCriteriaF(m, getDistance);
 }
 
+// 10 target
+int cmp_long_long(const void *pa, const void *pb) {
+    long long arg1 = *(const long long *) pa;
+    long long arg2 = *(const long long *) pb;
+
+    if (arg1 < arg2)
+        return -1;
+    else if (arg1 > arg2)
+        return 1;
+    else
+        return 0;
+}
+
+int countNUnique(long long *a, int n) {
+    qsort(a, n, sizeof(long long), cmp_long_long);
+
+    int totalUnique;
+    if (n != 0) {
+        totalUnique = 1;
+    }
+
+    int i = 1;
+    while (i < n) {
+        if (a[i - 1] != a[i])
+            totalUnique++;
+        i++;
+    }
+    return totalUnique;
+}
+
+int countEqClassesByRowsSum(matrix m) {
+    long long rowsSum[m.nRows];
+    for (size_t i = 0; i < m.nRows; i++) {
+        rowsSum[i] = sumInArray(m.values[i], m.nCols);
+    }
+
+    return countNUnique(rowsSum, m.nRows);
+}
+
+
 
 // tests of targets
 void test_swapRowsWithMinAndMaxElements_1() {
@@ -352,6 +392,22 @@ void test_sortByDistance_1() {
 
 }
 
+void test_countEqClassesByRowsSum_1() {
+    matrix m = createMatrixFromArray((int[]) {7, 1,
+                                              2, 7,
+                                              5, 4,
+                                              4, 3,
+                                              1, 6,
+                                              8, 0}, 6, 2);
+
+    int totalEqClassesByRowsSum = countEqClassesByRowsSum(m);
+
+    assert(totalEqClassesByRowsSum == 3);
+
+}
+
+
+
 void test() {
     test_swapRowsWithMinAndMaxElements_1();
     test_sortRowsByMinElement_1();
@@ -366,6 +422,7 @@ void test() {
     test_getMinInArea_1();
     test_getMinInArea_2_MaxInFirstRow();
     test_sortByDistance_1();
+    test_countEqClassesByRowsSum_1();
 }
 
 int main() {
