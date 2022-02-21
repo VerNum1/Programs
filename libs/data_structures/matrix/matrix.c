@@ -42,7 +42,7 @@ void outputMatrix(matrix m) {
     for (int i = 0; i < m.nRows; i++) {
         for (int j = 0; j < m.nCols; j++)
             printf("%d ", m.values[i][j]);
-            printf("\n");
+        printf("\n");
     }
 }
 
@@ -107,11 +107,14 @@ bool isSquareMatrix(matrix m) {
 }
 
 bool areTwoMatricesEqual(matrix m1, matrix m2) {
-    for (int i = 0; i < m1.nRows; ++i)
-        for (int j = 0; j < m1.nCols; ++j)
-            if (m1.values[i][j] != m2.values[i][j])
-                return false;
-    return true;
+    if (m1.nRows != m2.nRows | m1.nCols != m2.nCols)
+        return false;
+    else {
+        for (int i = 0; i < m1.nRows; ++i)
+            if (memcmp(m1.values[i], m2.values[i], sizeof(int)) == 0)
+                return true;
+        return false;
+    }
 }
 
 bool isEMatrix(matrix m) {
@@ -122,21 +125,16 @@ bool isEMatrix(matrix m) {
 }
 
 bool isSymmetricMatrix(matrix m) {
-    if (!isSquareMatrix(m))
-        return false;
-    else {
-        bool isSymmetric = true;
-        int i = 0;
-        while (isSymmetric && i < m.nRows) {
-            int j = 0;
-            while (isSymmetric && j < m.nCols) {
-                isSymmetric = m.values[i][j] == m.values[j][i];
-                j++;
-            }
-            i++;
+    bool isSymmetric = false;
+    for (size_t i = 0; i < m.nRows; i++) {
+        for (size_t j = i + 1; j < m.nCols; j++) {
+            isSymmetric = (bool) (m.values[i][j] == m.values[j][i]);
+            if (isSymmetric == false)
+                return false;
         }
-        return isSymmetric;
     }
+
+    return (bool) isSymmetric;
 }
 
 void transposeSquareMatrix(matrix m) {

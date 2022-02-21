@@ -23,6 +23,8 @@ stdbool.h
 -
 assert.h
 -
+mem.h
+-
 ../../algorithms/algorithms.h
 C:/Users/vadim/CLionProjects/untitled3/libs/algorithms/algorithms.h
 

@@ -7,7 +7,7 @@ void swap(int *a, int *b) {
 }
 
 int max(int a, int b){
-    a > b ? a : b;
+    return a > b ? a : b;
 }
 
 void selectionSort(int *a, const int size) {
@@ -18,4 +18,13 @@ void selectionSort(int *a, const int size) {
                 minPos = j;
         swap(&a[i], &a[minPos]);
     }
+}
+
+int sumInArray(int *a, const int n){
+    int sum = 0;
+    for (int i = 0; i < n; ++i) {
+        sum += a[i];
+    }
+
+    return sum;
 }
