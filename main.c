@@ -83,7 +83,7 @@ bool isUnique(long long *a, int n) {
     return isUnique;
 }
 
-void transposeIfMatrixHasEqualSumOfRows(matrix m) {
+void transposeIfMatrixHasNotEqualSumOfRows(matrix m) {
     long long sumRows[m.nRows];
     for (int i = 0; i < m.nRows; ++i) {
         sumRows[i] = getSum(m.values[i], m.nCols);
@@ -100,7 +100,7 @@ bool isMutuallyInverseMatrices(matrix m1, matrix m2) {
 }
 
 // target 7
-int sumMaxOfDiagonalsOfMatrixExceptMainOne(matrix m) {
+int findSumOfMaxesOfPseudoDiagonal(matrix m) {
     int sizeSumArray = m.nCols + m.nRows - 1;
     int sumArray[sizeSumArray];
     for (size_t i = 0; i < sizeSumArray; i++) {
@@ -225,6 +225,7 @@ int getNSpecialElement(matrix m) {
         if (specialElement > sumElementInCol)
             nSpecialElement++;
     }
+
     return nSpecialElement;
 }
 
@@ -281,6 +282,41 @@ int countNonDescendingRowsMatrices(matrix *ms, int nMatrix) {
 
     return numberRightMatrix;
 }
+
+// 14 target
+int countValues(const int *a, const int n, const int value) {
+    int totalValues = 0;
+    for (int i = 0; i < n; ++i)
+        if (a[i] == value)
+            totalValues += 1;
+
+    return totalValues;
+}
+
+int countZeroRows(matrix m) {
+    int zeroRows = 0;
+    for (int i = 0; i < m.nRows; ++i)
+        if (countValues(m.values[i], m.nCols, 0) == m.nCols)
+            zeroRows += 1;
+
+    return zeroRows;
+}
+
+void printMatrixWithMaxZeroRows(matrix *ms, int nMatrix) {
+    int zeroRowsM[nMatrix]; // массив максимального количества нулевых строк в i-ой матрице
+    int maxZeroRows = 0; // сразу посчитаем максимальное кол-во нулевых строк
+    for (int i = 0; i < nMatrix; ++i) {
+        zeroRowsM[i] = countZeroRows(ms[i]);
+        if (zeroRowsM[i] > maxZeroRows)
+            maxZeroRows = zeroRowsM[i];
+    }
+
+    for (int i = 0; i < nMatrix; ++i) // вывод матриц с максимальным кол-вом нулевых строк
+        if (zeroRowsM[i] == maxZeroRows)
+            outputMatrix(ms[i]);
+}
+
+// 15 target
 
 // tests of targets
 void test_swapRowsWithMinAndMaxElements_1() {
@@ -368,7 +404,7 @@ void test_transposeIfMatrixHasNotEqualSumOfRows_1() {
     matrix needM = createMatrixFromArray((int[]) {1, 2,
                                                   2, 1}, 2, 2);
 
-    transposeIfMatrixHasEqualSumOfRows(haveM);
+    transposeIfMatrixHasNotEqualSumOfRows(haveM);
 
     assert(areTwoMatricesEqual(haveM, needM));
 
@@ -383,7 +419,7 @@ void test_transposeIfMatrixHasNotEqualSumOfRows_2() {
     matrix needM = createMatrixFromArray((int[]) {1, 1,
                                                   3, 2}, 2, 2);
 
-    transposeIfMatrixHasEqualSumOfRows(haveM);
+    transposeIfMatrixHasNotEqualSumOfRows(haveM);
 
     assert(areTwoMatricesEqual(haveM, needM));
 
@@ -417,11 +453,11 @@ void test_isMutuallyInverseMatrices_2() {
     freeMemMatrix(haveM2);
 }
 
-void test_sumMaxOfDiagonalsOfMatrixExceptMainOne_1() {
+void test_findSumOfMaxesOfPseudoDiagonal_1() {
     matrix m = createMatrixFromArray((int[]) {1, 2, 3,
                                               4, 5, 6,
                                               7, 8, 9}, 3, 3);
-    int sum = sumMaxOfDiagonalsOfMatrixExceptMainOne(m);
+    int sum = findSumOfMaxesOfPseudoDiagonal(m);
 
     assert(sum == 24);
 
@@ -531,6 +567,20 @@ void test_countNonDescendingRowsMatrices_1() {
     assert(countNonDescendingRowsMatrices(ms, 4) == 2);
 }
 
+void test_countZeroRows_1() {
+    matrix m = createMatrixFromArray(
+            (int[]) {
+                    0, 0,
+                    1, 0,
+                    0, 0,
+            },
+            3, 2);
+
+    assert(countZeroRows(m) == 2);
+
+    freeMemMatrix(m);
+}
+
 void test() {
     test_swapRowsWithMinAndMaxElements_1();
     test_sortRowsByMinElement_1();
@@ -541,7 +591,7 @@ void test() {
     test_transposeIfMatrixHasNotEqualSumOfRows_2();
     test_isMutuallyInverseMatrices_1();
     test_isMutuallyInverseMatrices_2();
-    test_sumMaxOfDiagonalsOfMatrixExceptMainOne_1();
+    test_findSumOfMaxesOfPseudoDiagonal_1();
     test_getMinInArea_1();
     test_getMinInArea_2_MaxInFirstRow();
     test_sortByDistance_1();
@@ -550,6 +600,7 @@ void test() {
     test_getNSpecialElement_1();
     test_swapPenultimateRow_1();
     test_countNonDescendingRowsMatrices_1();
+    test_countZeroRows_1();
 }
 
 int main() {
