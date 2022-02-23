@@ -1,5 +1,6 @@
 #include "libs/data_structures/matrix/matrix.h"
 
+#define ESP 0.000001
 
 // 1 target
 void swapRowsWithMinAndMaxElements(matrix m) {
@@ -312,11 +313,102 @@ void printMatrixWithMaxZeroRows(matrix *ms, int nMatrix) {
     }
 
     for (int i = 0; i < nMatrix; ++i) // вывод матриц с максимальным кол-вом нулевых строк
-        if (zeroRowsM[i] == maxZeroRows)
+        if (zeroRowsM[i] == maxZeroRows) {
             outputMatrix(ms[i]);
+            printf("\n");
+        }
 }
 
 // 15 target
+// вещественная матрица
+typedef struct matrixF {
+    float **values; // элементы матрицы
+    int nRows; // количество рядов
+    int nCols; // количество столбцов
+} matrixF;
+
+matrixF getMemMatrixF(int nRows, int nCols) {
+    float **values = (float **) malloc(sizeof(float *) * nRows);
+    for (int i = 0; i < nRows; i++)
+        values[i] = (float *) malloc(sizeof(float) * nCols);
+    return (matrixF) {values, nRows, nCols};
+}
+
+matrixF *getMemArrayOfMatricesF(int nMatrices, int nRows, int nCols) {
+    matrixF *ms = (matrixF *) malloc(sizeof(matrixF) * nMatrices);
+    for (int i = 0; i < nMatrices; i++)
+        ms[i] = getMemMatrixF(nRows, nCols);
+
+    return ms;
+}
+
+matrixF createMatrixFromArrayF(const float *a, int nRows, int nCols) {
+    matrixF m = getMemMatrixF(nRows, nCols);
+    int k = 0;
+    for (int i = 0; i < nRows; i++)
+        for (int j = 0; j < nCols; j++)
+            m.values[i][j] = a[k++];
+
+    return m;
+}
+
+matrixF *createArrayOfMatrixFromArrayF(const float *values, int nMatrices,
+                                       int nRows, int nCols) {
+    matrixF *ms = getMemArrayOfMatricesF(nMatrices, nRows, nCols);
+    int l = 0;
+    for (int k = 0; k < nMatrices; k++)
+        for (int i = 0; i < nRows; i++)
+            for (int j = 0; j < nCols; j++)
+                ms[k].values[i][j] = values[l++];
+
+    return ms;
+}
+
+void outputMatrixF(matrixF m) {
+    for (int i = 0; i < m.nRows; i++) {
+        for (int j = 0; j < m.nCols; j++)
+            printf("%f ", m.values[i][j]);
+        printf("\n");
+    }
+}
+
+position getMaxFabsfValuePosF(matrixF m) {
+    position maxPos = (position) {0, 0};
+    for (int i = 0; i < m.nRows; ++i) {
+        for (int j = 1; j < m.nCols; ++j)
+            if (fabsf(m.values[i][j]) > fabsf(m.values[maxPos.rowIndex][maxPos.colIndex]))
+                maxPos = (position) {i, j};
+    }
+    return maxPos;
+}
+//
+
+float getMinF(const float *a, const int n) {
+    float min = a[0];
+    for (int i = 1; i < n; i++)
+        if (min > a[i])
+            min = a[i];
+
+    return min;
+}
+
+void printMatrixWithMinOfMaxAbsolutValue(matrixF *ms, int nMatrix) {
+    float arrAbsolutOfMatrix[nMatrix];
+    for (int i = 0; i < nMatrix; ++i) {
+        position posMaxAbsolut = getMaxFabsfValuePosF(ms[i]);
+        arrAbsolutOfMatrix[i] = ms[i].values[posMaxAbsolut.rowIndex][posMaxAbsolut.colIndex];
+    }
+
+    float minOfAbsolute = getMinF(arrAbsolutOfMatrix, nMatrix);
+
+    for (int i = 0; i < nMatrix; ++i)
+        if (fabsf(arrAbsolutOfMatrix[i] - minOfAbsolute) < ESP) {
+            outputMatrixF(ms[i]);
+            printf("\n");
+        }
+
+}
+
 
 // tests of targets
 void test_swapRowsWithMinAndMaxElements_1() {
@@ -454,36 +546,36 @@ void test_isMutuallyInverseMatrices_2() {
 }
 
 void test_findSumOfMaxesOfPseudoDiagonal_1() {
-    matrix m = createMatrixFromArray((int[]) {1, 2, 3,
-                                              4, 5, 6,
-                                              7, 8, 9}, 3, 3);
-    int sum = findSumOfMaxesOfPseudoDiagonal(m);
+    matrix m1 = createMatrixFromArray((int[]) {1, 2, 3,
+                                               4, 5, 6,
+                                               7, 8, 9}, 3, 3);
+    int sum = findSumOfMaxesOfPseudoDiagonal(m1);
 
     assert(sum == 24);
 
-    freeMemMatrix(m);
+    freeMemMatrix(m1);
 }
 
 void test_getMinInArea_1() {
-    matrix m = createMatrixFromArray((int[]) {5, 2, 3,
-                                              4, 4, 6,
-                                              7, 11, 9}, 3, 3);
-    int min = getMinInArea(m);
+    matrix m1 = createMatrixFromArray((int[]) {5, 2, 3,
+                                               4, 4, 6,
+                                               7, 11, 9}, 3, 3);
+    int min = getMinInArea(m1);
 
     assert(min == 2);
 
-    freeMemMatrix(m);
+    freeMemMatrix(m1);
 }
 
 void test_getMinInArea_2_MaxInFirstRow() {
-    matrix m = createMatrixFromArray((int[]) {12, 2, 3,
-                                              4, 4, 6,
-                                              7, 11, 9}, 3, 3);
-    int min = getMinInArea(m);
+    matrix m1 = createMatrixFromArray((int[]) {12, 2, 3,
+                                               4, 4, 6,
+                                               7, 11, 9}, 3, 3);
+    int min = getMinInArea(m1);
 
     assert(min == 12);
 
-    freeMemMatrix(m);
+    freeMemMatrix(m1);
 }
 
 void test_sortByDistance_1() {
@@ -497,30 +589,34 @@ void test_sortByDistance_1() {
                                                   14, 8, 5, 4}, 3, 4);
     assert(areTwoMatricesEqual(haveM, needM));
 
+    freeMemMatrix(haveM);
+    freeMemMatrix(needM);
 }
 
 void test_countEqClassesByRowsSum_1() {
-    matrix m = createMatrixFromArray((int[]) {7, 1,
-                                              2, 7,
-                                              5, 4,
-                                              4, 3,
-                                              1, 6,
-                                              8, 0}, 6, 2);
+    matrix m1 = createMatrixFromArray((int[]) {7, 1,
+                                               2, 7,
+                                               5, 4,
+                                               4, 3,
+                                               1, 6,
+                                               8, 0}, 6, 2);
 
-    int totalEqClassesByRowsSum = countEqClassesByRowsSum(m);
+    int totalEqClassesByRowsSum = countEqClassesByRowsSum(m1);
 
     assert(totalEqClassesByRowsSum == 3);
 
+    freeMemMatrix(m1);
 }
 
 void test_countEqClassesByRowsSum_2_allEqual() {
-    matrix m = createMatrixFromArray((int[]) {7, 1,
-                                              0, 8,
-                                              2, 6,
-                                              3, 5}, 4, 2);
+    matrix m1 = createMatrixFromArray((int[]) {7, 1,
+                                               0, 8,
+                                               2, 6,
+                                               3, 5}, 4, 2);
 
-    assert(countEqClassesByRowsSum(m) == 1);
+    assert(countEqClassesByRowsSum(m1) == 1);
 
+    freeMemMatrix(m1);
 }
 
 void test_getNSpecialElement_1() {
@@ -532,6 +628,7 @@ void test_getNSpecialElement_1() {
 
     assert(totalNSpecialElement == 2);
 
+    freeMemMatrix(m);
 }
 
 void test_swapPenultimateRow_1() {
@@ -545,6 +642,8 @@ void test_swapPenultimateRow_1() {
                                                   7, 8, 1}, 3, 3);
     assert(areTwoMatricesEqual(haveM, needM));
 
+    freeMemMatrix(haveM);
+    freeMemMatrix(needM);
 }
 
 void test_countNonDescendingRowsMatrices_1() {
@@ -565,6 +664,8 @@ void test_countNonDescendingRowsMatrices_1() {
             4, 2, 2);
 
     assert(countNonDescendingRowsMatrices(ms, 4) == 2);
+
+    freeMemMatrices(ms, 4);
 }
 
 void test_countZeroRows_1() {
@@ -579,6 +680,55 @@ void test_countZeroRows_1() {
     assert(countZeroRows(m) == 2);
 
     freeMemMatrix(m);
+}
+
+void test_printMatrixWithMaxZeroRows_1() {
+    matrix *ms = createArrayOfMatrixFromArray((int[]) {0, 1,
+                                                       0, 1,
+                                                       1, 0,
+
+                                                       1, 1,
+                                                       1, 0,
+                                                       1, 1,
+
+                                                       0, 0,
+                                                       0, 0,
+                                                       1, 1,
+
+                                                       0, 0,
+                                                       1, 0,
+                                                       0, 0,
+
+                                                       1, 0,
+                                                       1, 1,
+                                                       0, 1}, 5, 3, 2);
+
+    printMatrixWithMaxZeroRows(ms, 5);
+}
+
+void test_printMatrixWithMinOfMaxAbsolutValue_1() {
+    matrixF *ms = createArrayOfMatrixFromArrayF((float[]) {
+            0, 0,
+            0, 0,
+            0, 0,
+
+            1, 100.f,
+            1, 1,
+            1, 1,
+
+            0, 0,
+            0, 0,
+            4.f, 111111.f,
+
+            0, 0,
+            0, 10.f,
+            0, 0,
+
+            0, 0,
+            0, 1,
+            100.f, 1}, 5, 3, 2);
+
+    printMatrixWithMinOfMaxAbsolutValue(ms, 5);
 }
 
 void test() {
@@ -601,10 +751,13 @@ void test() {
     test_swapPenultimateRow_1();
     test_countNonDescendingRowsMatrices_1();
     test_countZeroRows_1();
+    test_printMatrixWithMaxZeroRows_1(); // вывод
+    test_printMatrixWithMinOfMaxAbsolutValue_1(); // вывод
 }
 
 int main() {
     test();
+
 
     return 0;
 }
