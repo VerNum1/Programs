@@ -12,5 +12,6 @@ CMakeFiles/untitled3.dir/libs/string/string_.c.obj: \
 CMakeFiles/untitled3.dir/main.c.obj: \
  ../libs/algorithms/algorithms.h \
  ../libs/string/string_.h \
+ ../libs/string/tasks/removeExtraSpaces.h \
  ../libs/string/tasks/removeNonLetters.h \
  ../main.c

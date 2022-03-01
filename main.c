@@ -2,6 +2,7 @@
 #include <assert.h>
 
 #include "libs/string/tasks/removeNonLetters.h"
+#include "libs/string/tasks/removeExtraSpaces.h"
 
 void test_strlen() {
     char s[6] = "Hello";
@@ -235,6 +236,7 @@ void test_libs_string() {
 
 void test_tasks(){
     test_removeNonLetters(); // 1
+    test_removeExtraSpaces(); // 2
 }
 
 int main() {
