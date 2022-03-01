@@ -228,6 +228,12 @@
 		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/printWordsNonEqualLastWord.h">
 			<Option target="string"/>
 		</Unit>
+		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/removeExtraSpaces.c">
+			<Option target="string"/>
+		</Unit>
+		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/removeExtraSpaces.h">
+			<Option target="string"/>
+		</Unit>
 		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/removeNonLetters.c">
 			<Option target="string"/>
 		</Unit>

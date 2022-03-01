@@ -1,0 +1,8 @@
+#ifndef UNTITLED3_REMOVEEXTRASPACES_H
+#define UNTITLED3_REMOVEEXTRASPACES_H
+
+#include "../../string/string_.h"
+
+
+
+#endif //UNTITLED3_REMOVEEXTRASPACES_H

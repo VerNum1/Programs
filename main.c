@@ -234,7 +234,7 @@ void test_libs_string() {
 }
 
 void test_tasks(){
-    test_removeNonLetters_();
+    test_removeNonLetters(); // 1
 }
 
 int main() {

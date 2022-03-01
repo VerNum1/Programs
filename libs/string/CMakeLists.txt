@@ -5,4 +5,4 @@ add_library (string
         tasks/removeNonLetters.c
         tasks/removeNonLetters.h
         tasks/printWordsNonEqualLastWord.h
-        tasks/printWordsNonEqualLastWord.c)
+        tasks/printWordsNonEqualLastWord.c tasks/removeExtraSpaces.c tasks/removeExtraSpaces.h)

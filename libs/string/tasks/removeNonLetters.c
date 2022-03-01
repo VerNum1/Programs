@@ -13,3 +13,21 @@ void test_removeNonLetters_() {
 
     ASSERT_STRING("Hello", s);
 }
+
+void test_removeNonLetters_noSpaces() {
+    char s[] = "hello";
+    removeNonLetters(s);
+    ASSERT_STRING("hello", s);
+}
+
+void test_removeNonLetters_allSpaces() {
+    char s[] = "      ";
+    removeNonLetters(s);
+    ASSERT_STRING("", s);
+}
+
+void test_removeNonLetters(){
+    test_removeNonLetters_();
+    test_removeNonLetters_noSpaces();
+    test_removeNonLetters_allSpaces();
+}
