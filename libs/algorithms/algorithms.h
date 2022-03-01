@@ -14,4 +14,8 @@ int sumInArray(int *a, const int n);
 
 void swap_(void *a, void *b, int size);
 
+int isEvenSymbol(int a);
+
+char *getEndOfString (char *s);
+
 #endif //UNTITLED3_ALGORITHMS_H

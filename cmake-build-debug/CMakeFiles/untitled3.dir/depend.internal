@@ -5,7 +5,12 @@ CMakeFiles/untitled3.dir/libs/data_structures/matrix/matrix.c.obj
  C:/Users/vadim/CLionProjects/untitled3/libs/algorithms/algorithms.h
  C:/Users/vadim/CLionProjects/untitled3/libs/data_structures/matrix/matrix.c
  C:/Users/vadim/CLionProjects/untitled3/libs/data_structures/matrix/matrix.h
+CMakeFiles/untitled3.dir/libs/string/string_.c.obj
+ C:/Users/vadim/CLionProjects/untitled3/libs/algorithms/algorithms.h
+ C:/Users/vadim/CLionProjects/untitled3/libs/string/string_.c
+ C:/Users/vadim/CLionProjects/untitled3/libs/string/string_.h
 CMakeFiles/untitled3.dir/main.c.obj
  C:/Users/vadim/CLionProjects/untitled3/libs/algorithms/algorithms.h
- C:/Users/vadim/CLionProjects/untitled3/libs/data_structures/matrix/matrix.h
+ C:/Users/vadim/CLionProjects/untitled3/libs/string/string_.h
+ C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/removeNonLetters.h
  C:/Users/vadim/CLionProjects/untitled3/main.c

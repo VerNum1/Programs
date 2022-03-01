@@ -47,3 +47,8 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/algorithms/cmake_install.cmake")
 endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/string/cmake_install.cmake")
+endif()
+

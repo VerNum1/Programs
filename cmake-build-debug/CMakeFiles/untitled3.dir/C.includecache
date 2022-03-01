@@ -10,25 +10,25 @@ C:/Users/vadim/CLionProjects/untitled3/libs/algorithms/algorithms.h
 stdio.h
 -
 
-C:/Users/vadim/CLionProjects/untitled3/libs/data_structures/matrix/matrix.h
-malloc.h
--
-stdlib.h
--
+C:/Users/vadim/CLionProjects/untitled3/libs/string/string_.h
 stdio.h
 -
-stdbool.h
+ctype.h
 -
-assert.h
+memory.h
 -
-mem.h
--
-math.h
--
-../../algorithms/algorithms.h
+../../libs/algorithms/algorithms.h
 C:/Users/vadim/CLionProjects/untitled3/libs/algorithms/algorithms.h
 
+C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/removeNonLetters.h
+../../string/string_.h
+C:/Users/vadim/CLionProjects/untitled3/libs/string/string_.h
+
 C:/Users/vadim/CLionProjects/untitled3/main.c
-libs/data_structures/matrix/matrix.h
-C:/Users/vadim/CLionProjects/untitled3/libs/data_structures/matrix/matrix.h
+libs/string/string_.h
+C:/Users/vadim/CLionProjects/untitled3/libs/string/string_.h
+assert.h
+-
+libs/string/tasks/removeNonLetters.h
+C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/removeNonLetters.h
 

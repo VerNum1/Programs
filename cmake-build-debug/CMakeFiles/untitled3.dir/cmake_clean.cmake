@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/untitled3.dir/libs/data_structures/matrix/matrix.c.obj"
+  "CMakeFiles/untitled3.dir/libs/string/string_.c.obj"
   "CMakeFiles/untitled3.dir/main.c.obj"
   "libuntitled3.dll.a"
   "untitled3.exe"

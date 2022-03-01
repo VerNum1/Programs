@@ -154,6 +154,19 @@ algorithms/fast:
 	$(MAKE) $(MAKESILENT) -f libs\algorithms\CMakeFiles\algorithms.dir\build.make libs/algorithms/CMakeFiles/algorithms.dir/build
 .PHONY : algorithms/fast
 
+#=============================================================================
+# Target rules for targets named string
+
+# Build rule for target.
+string: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 string
+.PHONY : string
+
+# fast build rule for target.
+string/fast:
+	$(MAKE) $(MAKESILENT) -f libs\string\CMakeFiles\string.dir\build.make libs/string/CMakeFiles/string.dir/build
+.PHONY : string/fast
+
 libs/data_structures/matrix/matrix.obj: libs/data_structures/matrix/matrix.c.obj
 .PHONY : libs/data_structures/matrix/matrix.obj
 
@@ -177,6 +190,30 @@ libs/data_structures/matrix/matrix.s: libs/data_structures/matrix/matrix.c.s
 libs/data_structures/matrix/matrix.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled3.dir\build.make CMakeFiles/untitled3.dir/libs/data_structures/matrix/matrix.c.s
 .PHONY : libs/data_structures/matrix/matrix.c.s
+
+libs/string/string_.obj: libs/string/string_.c.obj
+.PHONY : libs/string/string_.obj
+
+# target to build an object file
+libs/string/string_.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled3.dir\build.make CMakeFiles/untitled3.dir/libs/string/string_.c.obj
+.PHONY : libs/string/string_.c.obj
+
+libs/string/string_.i: libs/string/string_.c.i
+.PHONY : libs/string/string_.i
+
+# target to preprocess a source file
+libs/string/string_.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled3.dir\build.make CMakeFiles/untitled3.dir/libs/string/string_.c.i
+.PHONY : libs/string/string_.c.i
+
+libs/string/string_.s: libs/string/string_.c.s
+.PHONY : libs/string/string_.s
+
+# target to generate assembly for a file
+libs/string/string_.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled3.dir\build.make CMakeFiles/untitled3.dir/libs/string/string_.c.s
+.PHONY : libs/string/string_.c.s
 
 main.obj: main.c.obj
 .PHONY : main.obj
@@ -212,10 +249,14 @@ help:
 	@echo ... rebuild_cache
 	@echo ... algorithms
 	@echo ... data_structures
+	@echo ... string
 	@echo ... untitled3
 	@echo ... libs/data_structures/matrix/matrix.obj
 	@echo ... libs/data_structures/matrix/matrix.i
 	@echo ... libs/data_structures/matrix/matrix.s
+	@echo ... libs/string/string_.obj
+	@echo ... libs/string/string_.i
+	@echo ... libs/string/string_.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

@@ -1,763 +1,245 @@
-#include "libs/data_structures/matrix/matrix.h"
+#include "libs/string/string_.h"
+#include <assert.h>
 
-#define ESP 0.000001
+#include "libs/string/tasks/removeNonLetters.h"
 
-// 1 target
-void swapRowsWithMinAndMaxElements(matrix m) {
-    position minPosition = getMinValuePos(m);
-    position maxPosition = getMaxValuePos(m);
+void test_strlen() {
+    char s[6] = "Hello";
 
-    swapRows(m, minPosition.rowIndex, maxPosition.rowIndex);
+    assert(strlen(s) == 5);
 }
 
-// 2 target
-int getMaxToMin(int *a, int n) {
-    int max = a[0];
-    for (int i = 0; i < n; ++i) {
-        if (a[i] > max)
-            max = a[i];
-    }
+void test_strlen_zeroElements() {
+    char s[] = "";
 
-    return -max;
+    assert(strlen(s) == 0);
 }
 
-void sortRowsByMinElement(matrix m) {
-    insertionSortRowsMatrixByRowCriteria(m, getMaxToMin);
+void test_find_notRepeatingElements() {
+    char s[11] = "ctpvprogra";
+    char ch = 118;
+    char *symbol = find(&s[0], &s[10], ch);
+    assert(*symbol == s[3]);
 }
 
-// 3 target
-int getMinToMax(int *a, int n) {
-    int min = a[0];
-    for (int i = 0; i < n; ++i) {
-        if (a[i] < min)
-            min = a[i];
-    }
-
-    return -min;
+void test_find_withRepeatingElementsNotNormal() {
+    char s[12] = "ctpvpovitis";
+    char ch = 118; // v
+    char *symbol = find(&s[0], &s[5], ch);
+    assert(*symbol == s[6]);
 }
 
-
-void sortColsByMinElement(matrix m) {
-    insertionSortColsMatrixByColCriteria(m, getMinToMax);
+void test_findNonSpace_firstElementNonSpace() {
+    char s[7] = "abc de";
+    char *symbol = findNonSpace(&s[0]);
+    assert(symbol == &s[0]);
 }
 
-// 4 target
-matrix mulMatrices(matrix m1, matrix m2) {
-    matrix m = getMemMatrix(m1.nRows, m1.nCols);
-
-    for (int i = 0; i < m1.nRows; i++)
-        for (int j = 0; j < m2.nCols; j++) {
-            m.values[i][j] = 0;
-            for (int k = 0; k < m1.nCols; k++)
-                m.values[i][j] += m1.values[i][k] * m2.values[k][j];
-        }
-
-    return m;
+void test_findNonSpace_afterFirstElementNonSpace() {
+    char s[9] = "   hello";
+    char *symbol = findNonSpace(&s[0]);
+    assert(symbol == &s[3]);
 }
 
-void getSquareOfMatrixIfSymmetric(matrix *m) {
-    if (isSymmetricMatrix(*m)) {
-        matrix m1 = mulMatrices(*m, *m);
-        for (int i = 0; i < m->nRows; ++i)
-            for (int j = 0; j < m->nCols; ++j)
-                m->values[i][j] = m1.values[i][j];
-
-    }
+void test_findNonSpace_allElementsIsSpace() {
+    char s[7] = "      ";
+    char *symbol = findNonSpace(&s[0]);
+    assert(symbol == &s[6]);
 }
 
-// 5 target
-long long getSum(int *a, int n) {
-    long long sum = 0;
-    for (int i = 0; i < n; ++i)
-        sum += a[i];
-    return sum;
+void test_findSpace_firstSpace() {
+    char s[12] = " let me die";
+    char *symbol = findSpace(&s[0]);
+    assert(symbol == &s[0]);
 }
 
-bool isUnique(long long *a, int n) {
-    bool isUnique = true;
-    for (int i = 0; i < n; ++i) {
-        for (int j = i + 1; j < n; ++j) {
-            if (a[i] == a[j])
-                isUnique = false;
-        }
-    }
-    return isUnique;
+void test_findSpace_SecondElementSpace() {
+    char s[5] = "a bcd";
+    char *symbol = findSpace(&s[0]);
+    assert(symbol == &s[1]);
 }
 
-void transposeIfMatrixHasNotEqualSumOfRows(matrix m) {
-    long long sumRows[m.nRows];
-    for (int i = 0; i < m.nRows; ++i) {
-        sumRows[i] = getSum(m.values[i], m.nCols);
-    }
-    if (isUnique(sumRows, m.nRows))
-        transposeSquareMatrix(m);
+void test_findSpace_allElementsIsntSpace() {
+    char s[8] = "abcdefg";
+    char *symbol = findSpace(&s[0]);
+    assert(symbol == &s[7]);
 }
 
-// 6 target
-bool isMutuallyInverseMatrices(matrix m1, matrix m2) {
-    matrix m = mulMatrices(m1, m2);
-
-    return (bool) isEMatrix(m);
+void test_test_findNonSpaceReverse_firstSymbolRightNotSpace() {
+    char s[7] = "abc de";
+    char *symbol = findNonSpaceReverse(&s[5], &s[-1]);
+    assert(symbol == &s[5]);
 }
 
-// target 7
-int findSumOfMaxesOfPseudoDiagonal(matrix m) {
-    int sizeSumArray = m.nCols + m.nRows - 1;
-    int sumArray[sizeSumArray];
-    for (size_t i = 0; i < sizeSumArray; i++) {
-        sumArray[i] = 0;
-    }
-
-    for (size_t i = 0; i < m.nRows; i++) {
-        for (size_t j = 0; j < m.nCols; j++)
-            if (i != j)
-                sumArray[j - i + 2] = max(sumArray[j - i + 2], m.values[i][j]);
-    }
-    int sum = sumInArray(sumArray, m.nRows + m.nCols - 1);
-
-    return sum;
+void test_test_findNonSpaceReverse_afterFirstElementRightNotSpace() {
+    char s[13] = "abs pasca   ";
+    char *symbol = findNonSpaceReverse(&s[11], &s[-1]);
+    assert(symbol == &s[8]);
 }
 
-// 8 target
-int getMinInArea(matrix m) {
-    position maxPos = getMaxValuePos(m);
-
-    int minElement = m.values[maxPos.rowIndex][maxPos.colIndex];
-    int left = maxPos.colIndex;
-    int right = maxPos.colIndex;
-
-    for (int i = maxPos.rowIndex - 1; i >= 0; i--) {
-        if (left - 1 >= 0)
-            left--;
-        if (right + 1 < m.nCols)
-            right++;
-        int j = right;
-        while (j >= left) {
-            minElement = min(minElement, m.values[i][j]);
-            j--;
-        }
-    }
-
-    return minElement;
+void test_test_findNonSpaceReverse_allElementsIsSpace() {
+    char s[8] = "       ";
+    char *symbol = findNonSpaceReverse(&s[6], &s[-1]);
+    assert(symbol == &s[-1]);
 }
 
-// 9 target
-float getDistance(int *a, int size) {
-    int distance = 0;
-    for (size_t i = 0; i < size; i++) {
-        distance += a[i];
-    }
-
-    return sqrtf(distance);
+void test_findSpaceReverse_firstSpace() {
+    char s[14] = "aa aa aaaaaaa ";
+    char *symbol = findSpaceReverse(&s[14], &s[-1]);
+    assert(symbol == &s[13]);
 }
 
-void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(int *, int)) {
-    float *criteriaArray = (float *) malloc(sizeof(float) * m.nRows);
-
-    for (int i = 0; i < m.nRows; ++i) {
-        criteriaArray[i] = criteria(m.values[i], m.nCols);
-    }
-    for (int i = 0; i < m.nRows; ++i) {
-        for (int j = i; j > 0 && criteriaArray[j - 1] > criteriaArray[j]; j--) {
-            swap_(&criteriaArray[j - 1], &criteriaArray[j], sizeof(float));
-            swapRows(m, j, j - 1);
-        }
-    }
-
-    free(criteriaArray);
+void test_findSpaceReverse_afterFirstElementSpace() {
+    char s[10] = "1 2 3 4 5 ";
+    char *symbol = findSpaceReverse(&s[25], &s[-1]);
+    assert(symbol == &s[9]);
 }
 
-void sortByDistance(matrix m) {
-    insertionSortRowsMatrixByRowCriteriaF(m, getDistance);
-}
-
-// 10 target
-int cmp_long_long(const void *pa, const void *pb) {
-    long long arg1 = *(const long long *) pa;
-    long long arg2 = *(const long long *) pb;
-
-    if (arg1 < arg2)
-        return -1;
-    else if (arg1 > arg2)
-        return 1;
-    else
-        return 0;
-}
-
-int countNUnique(long long *a, int n) {
-    qsort(a, n, sizeof(long long), cmp_long_long);
-
-    int totalUnique;
-    if (n != 0) {
-        totalUnique = 1;
-    }
-
-    int i = 1;
-    while (i < n) {
-        if (a[i - 1] != a[i])
-            totalUnique++;
-        i++;
-    }
-    return totalUnique;
-}
-
-int countEqClassesByRowsSum(matrix m) {
-    long long rowsSum[m.nRows];
-    for (size_t i = 0; i < m.nRows; i++) {
-        rowsSum[i] = sumInArray(m.values[i], m.nCols);
-    }
-
-    return countNUnique(rowsSum, m.nRows);
-}
-
-// 11 target
-int getNSpecialElement(matrix m) {
-    int nSpecialElement = 0;
-    for (size_t j = 0; j < m.nCols; j++) {
-        int specialElement = m.values[0][j];
-        int sumElementInCol = 0;
-        for (size_t i = 1; i < m.nRows; i++) {
-            if (m.values[i][j] > specialElement) {
-                sumElementInCol += specialElement;
-                specialElement = m.values[i][j];
-            } else
-                sumElementInCol += m.values[i][j];
-        }
-        if (specialElement > sumElementInCol)
-            nSpecialElement++;
-    }
-
-    return nSpecialElement;
-}
-
-// 12 target
-position getLeftMin(matrix m) {
-    int min = m.values[0][0];
-    position minPosition = {0, 0};
-
-    for (int i = 0; i < m.nRows; i++) {
-        for (int j = 0; j < m.nCols; j++) {
-            if (m.values[i][j] < min) {
-                min = m.values[i][j];
-                minPosition = (position) {i, j};
-            }
-        }
-    }
-
-    return minPosition;
-}
-
-void swapPenultimateRow(matrix m) {
-    if (m.nRows <= 1)
-        printf("two or more lines are needed");
-
-    position min = getLeftMin(m);
-    int column[m.nRows];
-
-    for (size_t i = 0; i < m.nRows; i++) {
-        column[i] = m.values[i][min.colIndex];
-    }
-
-    memcpy(m.values[m.nRows - 2], column, sizeof(int) * m.nCols);
-}
-
-// 13 target
-bool isNonDescendingSorted(int *a, int n) {
-    for (int i = 1; i < n; i++)
-        if (a[i] < a[i - 1])
-            return false;
-    return true;
-}
-
-bool hasAllNonDescendingRows(matrix m) {
-    for (size_t i = 0; i < m.nRows; i++)
-        if (!isNonDescendingSorted(m.values[i], m.nCols))
-            return false;
-    return true;
-}
-
-int countNonDescendingRowsMatrices(matrix *ms, int nMatrix) {
-    int numberRightMatrix = 0;
-    for (size_t i = 0; i < nMatrix; i++)
-        numberRightMatrix += hasAllNonDescendingRows(ms[i]);
-
-    return numberRightMatrix;
-}
-
-// 14 target
-int countValues(const int *a, const int n, const int value) {
-    int totalValues = 0;
-    for (int i = 0; i < n; ++i)
-        if (a[i] == value)
-            totalValues += 1;
-
-    return totalValues;
-}
-
-int countZeroRows(matrix m) {
-    int zeroRows = 0;
-    for (int i = 0; i < m.nRows; ++i)
-        if (countValues(m.values[i], m.nCols, 0) == m.nCols)
-            zeroRows += 1;
-
-    return zeroRows;
-}
-
-void printMatrixWithMaxZeroRows(matrix *ms, int nMatrix) {
-    int zeroRowsM[nMatrix]; // массив максимального количества нулевых строк в i-ой матрице
-    int maxZeroRows = 0; // сразу посчитаем максимальное кол-во нулевых строк
-    for (int i = 0; i < nMatrix; ++i) {
-        zeroRowsM[i] = countZeroRows(ms[i]);
-        if (zeroRowsM[i] > maxZeroRows)
-            maxZeroRows = zeroRowsM[i];
-    }
-
-    for (int i = 0; i < nMatrix; ++i) // вывод матриц с максимальным кол-вом нулевых строк
-        if (zeroRowsM[i] == maxZeroRows) {
-            outputMatrix(ms[i]);
-            printf("\n");
-        }
-}
-
-// 15 target
-// вещественная матрица
-typedef struct matrixF {
-    float **values; // элементы матрицы
-    int nRows; // количество рядов
-    int nCols; // количество столбцов
-} matrixF;
-
-matrixF getMemMatrixF(int nRows, int nCols) {
-    float **values = (float **) malloc(sizeof(float *) * nRows);
-    for (int i = 0; i < nRows; i++)
-        values[i] = (float *) malloc(sizeof(float) * nCols);
-    return (matrixF) {values, nRows, nCols};
-}
-
-matrixF *getMemArrayOfMatricesF(int nMatrices, int nRows, int nCols) {
-    matrixF *ms = (matrixF *) malloc(sizeof(matrixF) * nMatrices);
-    for (int i = 0; i < nMatrices; i++)
-        ms[i] = getMemMatrixF(nRows, nCols);
-
-    return ms;
-}
-
-matrixF createMatrixFromArrayF(const float *a, int nRows, int nCols) {
-    matrixF m = getMemMatrixF(nRows, nCols);
-    int k = 0;
-    for (int i = 0; i < nRows; i++)
-        for (int j = 0; j < nCols; j++)
-            m.values[i][j] = a[k++];
-
-    return m;
-}
-
-matrixF *createArrayOfMatrixFromArrayF(const float *values, int nMatrices,
-                                       int nRows, int nCols) {
-    matrixF *ms = getMemArrayOfMatricesF(nMatrices, nRows, nCols);
-    int l = 0;
-    for (int k = 0; k < nMatrices; k++)
-        for (int i = 0; i < nRows; i++)
-            for (int j = 0; j < nCols; j++)
-                ms[k].values[i][j] = values[l++];
-
-    return ms;
-}
-
-void outputMatrixF(matrixF m) {
-    for (int i = 0; i < m.nRows; i++) {
-        for (int j = 0; j < m.nCols; j++)
-            printf("%f ", m.values[i][j]);
-        printf("\n");
-    }
-}
-
-position getMaxFabsfValuePosF(matrixF m) {
-    position maxPos = (position) {0, 0};
-    for (int i = 0; i < m.nRows; ++i) {
-        for (int j = 1; j < m.nCols; ++j)
-            if (fabsf(m.values[i][j]) > fabsf(m.values[maxPos.rowIndex][maxPos.colIndex]))
-                maxPos = (position) {i, j};
-    }
-    return maxPos;
-}
-//
-
-float getMinF(const float *a, const int n) {
-    float min = a[0];
-    for (int i = 1; i < n; i++)
-        if (min > a[i])
-            min = a[i];
-
-    return min;
-}
-
-void printMatrixWithMinOfMaxAbsolutValue(matrixF *ms, int nMatrix) {
-    float arrAbsolutOfMatrix[nMatrix];
-    for (int i = 0; i < nMatrix; ++i) {
-        position posMaxAbsolut = getMaxFabsfValuePosF(ms[i]);
-        arrAbsolutOfMatrix[i] = ms[i].values[posMaxAbsolut.rowIndex][posMaxAbsolut.colIndex];
-    }
-
-    float minOfAbsolute = getMinF(arrAbsolutOfMatrix, nMatrix);
-
-    for (int i = 0; i < nMatrix; ++i)
-        if (fabsf(arrAbsolutOfMatrix[i] - minOfAbsolute) < ESP) {
-            outputMatrixF(ms[i]);
-            printf("\n");
-        }
-
+void test_findSpaceReverse_allElementsNonSpace() {
+    char s[8] = "abcdefg";
+    char *symbol = findSpaceReverse(&s[6], &s[-1]);
+    assert(symbol == &s[-1]);
 }
 
 
-// tests of targets
-void test_swapRowsWithMinAndMaxElements_1() {
-    matrix haveM = createMatrixFromArray((int[]) {1, 2, 3,
-                                                  4, 5, 6,
-                                                  7, 8, 9}, 3, 3);
-    matrix needM = createMatrixFromArray((int[]) {7, 8, 9,
-                                                  4, 5, 6,
-                                                  1, 2, 3}, 3, 3);
-
-    swapRowsWithMinAndMaxElements(haveM);
-
-    assert(areTwoMatricesEqual(haveM, needM));
-
-    freeMemMatrix(haveM);
-    freeMemMatrix(needM);
+void test_strcmp_lhsMoreThenRhs() {
+    char s1[5] = "abcd";
+    char s2[3] = "ab";
+    assert(strcmp_(s1, s2) > 0);
 }
 
-void test_sortRowsByMinElement_1() {
-    matrix haveM = createMatrixFromArray((int[]) {1, 1, 2,
-                                                  1, 1, 3,
-                                                  1, 1, 1}, 3, 3);
-    matrix needM = createMatrixFromArray((int[]) {1, 1, 1,
-                                                  1, 1, 2,
-                                                  1, 1, 3}, 3, 3);
-
-    sortRowsByMinElement(haveM);
-
-    assert(areTwoMatricesEqual(haveM, needM));
-
-    freeMemMatrix(haveM);
-    freeMemMatrix(needM);
+void test_strcmp_rhsMoreThenlhs() {
+    char s1[3] = "ab";
+    char s2[5] = "abcd";
+    assert(strcmp_(s1, s2) < 0);
 }
 
-void test_sortColsByMinElement_1() {
-    matrix haveM = createMatrixFromArray((int[]) {1, 3, 0,
-                                                  2, 5, 4,
-                                                  3, 6, 7}, 3, 3);
-    matrix needM = createMatrixFromArray((int[]) {0, 1, 3,
-                                                  4, 2, 5,
-                                                  7, 3, 6}, 3, 3);
-
-    sortColsByMinElement(haveM);
-
-    assert(areTwoMatricesEqual(haveM, needM));
-
-    freeMemMatrix(haveM);
-    freeMemMatrix(needM);
+void test_strcmp_lhsEqualRhs() {
+    char s1[5] = "abcd";
+    char s2[5] = "abcd";
+    assert(strcmp_(s1, s2) == 0);
 }
 
-void test_getSquareOfMatrixIfSymmetric_1() {
-    matrix haveM = createMatrixFromArray((int[]) {1, 2,
-                                                  2, 1}, 2, 2);
-
-    matrix needM = createMatrixFromArray((int[]) {5, 4,
-                                                  4, 5}, 2, 2);
-
-    getSquareOfMatrixIfSymmetric(&haveM);
-
-    assert(areTwoMatricesEqual(haveM, needM));
-
-    freeMemMatrix(haveM);
-    freeMemMatrix(needM);
+void test_copy_allSymbol() {
+    char s1[6] = "hello";
+    char s2[10];
+    char *a = copy(&s1[0], &s1[5], s2);
+    assert(s2[0] == 'h');
+    assert(s2[1] == 'e');
+    assert(s2[2] == 'l');
+    assert(s2[3] == 'l');
+    assert(s2[4] == 'o');
+    assert(&s2[5] == a);
 }
 
-void test_getSquareOfMatrixIfSymmetric_2() {
-    matrix haveM = createMatrixFromArray((int[]) {1, 3,
-                                                  21, 1}, 2, 2);
-
-    matrix needM = createMatrixFromArray((int[]) {1, 3,
-                                                  21, 1}, 2, 2);
-
-    getSquareOfMatrixIfSymmetric(&haveM);
-
-    assert(areTwoMatricesEqual(haveM, needM));
-
-    freeMemMatrix(haveM);
-    freeMemMatrix(needM);
+void test_copyIf_allElementsMatchCondition() {
+    char s1[4] = "246";
+    char s2[4];
+    char *a = copyIf(&s1[0], &s1[2], s2, isEvenSymbol);
+    assert(s2[0] == '2');
+    assert(s2[1] == '4');
+    assert(&s2[2] == a);
 }
 
-void test_transposeIfMatrixHasNotEqualSumOfRows_1() {
-    matrix haveM = createMatrixFromArray((int[]) {1, 2,
-                                                  2, 1}, 2, 2);
-
-    matrix needM = createMatrixFromArray((int[]) {1, 2,
-                                                  2, 1}, 2, 2);
-
-    transposeIfMatrixHasNotEqualSumOfRows(haveM);
-
-    assert(areTwoMatricesEqual(haveM, needM));
-
-    freeMemMatrix(haveM);
-    freeMemMatrix(needM);
+void test_copyIf_allElementsNotSatisfyCondition() {
+    char s1[4] = "134";
+    char s2[4];
+    char s3[4];
+    char *a = copy(&s2[0], &s2[2], s3);
+    char *b = copyIf(&s1[0], &s1[2], s2, isEvenSymbol);
+    assert(s2[0] == s3[0]);
+    assert(s2[1] == s3[1]);
+    assert(&s2[0] == b);
 }
 
-void test_transposeIfMatrixHasNotEqualSumOfRows_2() {
-    matrix haveM = createMatrixFromArray((int[]) {1, 3,
-                                                  1, 2}, 2, 2);
-
-    matrix needM = createMatrixFromArray((int[]) {1, 1,
-                                                  3, 2}, 2, 2);
-
-    transposeIfMatrixHasNotEqualSumOfRows(haveM);
-
-    assert(areTwoMatricesEqual(haveM, needM));
-
-    freeMemMatrix(haveM);
-    freeMemMatrix(needM);
+void test_copyIf_randomElements() {
+    char s1[7] = "123456";
+    char s2[4];
+    char *a = copyIf(&s1[0], &s1[5], s2, isEvenSymbol);
+    assert(s2[0] == '2');
+    assert(s2[1] == '4');
+    assert(&s2[2] == a);
 }
 
-void test_isMutuallyInverseMatrices_1() {
-    matrix haveM1 = createMatrixFromArray((int[]) {3, -5,
-                                                   1, -2}, 2, 2);
-
-    matrix haveM2 = createMatrixFromArray((int[]) {2, -5,
-                                                   1, -3}, 2, 2);
-
-    assert(isMutuallyInverseMatrices(haveM1, haveM2) == true);
-
-    freeMemMatrix(haveM1);
-    freeMemMatrix(haveM2);
+void test_copyIfReverse_allElementsMatchCondition() {
+    char s1[4] = "246";
+    char s2[4];
+    char *a = copyIfReverse(&s1[2], &s1[0], s2, isEvenSymbol);
+    assert(s2[0] == '6');
+    assert(s2[1] == '4');
+    assert(&s2[2] == a);
 }
 
-void test_isMutuallyInverseMatrices_2() {
-    matrix haveM1 = createMatrixFromArray((int[]) {1, 3,
-                                                   1, 2}, 2, 2);
-
-    matrix haveM2 = createMatrixFromArray((int[]) {1, 1,
-                                                   3, 2}, 2, 2);
-
-    assert(isMutuallyInverseMatrices(haveM1, haveM2) == false);
-
-    freeMemMatrix(haveM1);
-    freeMemMatrix(haveM2);
+void test_copyIfReverse_allElementsNotSatisfyCondition() {
+    char s1[4] = "135";
+    char s2[4];
+    char s3[4];
+    char *a = copy(&s2[0], &s2[2], s3);
+    char *b = copyIfReverse(&s1[2], &s1[0], s2, isEvenSymbol);
+    assert(s2[0] == s3[0]);
+    assert(s2[1] == s3[1]);
+    assert(&s2[0] == b);
 }
 
-void test_findSumOfMaxesOfPseudoDiagonal_1() {
-    matrix m1 = createMatrixFromArray((int[]) {1, 2, 3,
-                                               4, 5, 6,
-                                               7, 8, 9}, 3, 3);
-    int sum = findSumOfMaxesOfPseudoDiagonal(m1);
+void test_copyIfReverse_mixedElements() {
+    char s1[7] = "123456";
+    char s2[4];
+    char *a = copyIfReverse(&s1[5], &s1[0], s2, isEvenSymbol);
 
-    assert(sum == 24);
-
-    freeMemMatrix(m1);
+    assert(s2[0] == '6');
+    assert(s2[1] == '4');
+    assert(s2[2] == '2');
+    assert(&s2[3] == a);
 }
 
-void test_getMinInArea_1() {
-    matrix m1 = createMatrixFromArray((int[]) {5, 2, 3,
-                                               4, 4, 6,
-                                               7, 11, 9}, 3, 3);
-    int min = getMinInArea(m1);
 
-    assert(min == 2);
-
-    freeMemMatrix(m1);
+void test_libs_string() {
+    //
+    test_strlen();
+    test_strlen_zeroElements();
+    //
+    test_find_notRepeatingElements();
+    test_find_withRepeatingElementsNotNormal();
+    //
+    test_findNonSpace_firstElementNonSpace();
+    test_findNonSpace_afterFirstElementNonSpace();
+    test_findNonSpace_allElementsIsSpace();
+    //
+    test_findSpace_firstSpace();
+    test_findSpace_SecondElementSpace();
+    test_findSpace_allElementsIsntSpace();
+    //
+    test_test_findNonSpaceReverse_firstSymbolRightNotSpace();
+    test_test_findNonSpaceReverse_afterFirstElementRightNotSpace();
+    test_test_findNonSpaceReverse_allElementsIsSpace();
+    //
+    test_findSpaceReverse_firstSpace();
+    test_findSpaceReverse_afterFirstElementSpace();
+    test_findSpaceReverse_allElementsNonSpace();
+    //
+    test_strcmp_lhsMoreThenRhs();
+    test_strcmp_rhsMoreThenlhs();
+    test_strcmp_lhsEqualRhs();
+    //
+    test_copy_allSymbol();
+    //
+    test_copyIf_allElementsMatchCondition();
+    test_copyIf_allElementsNotSatisfyCondition();
+    test_copyIf_randomElements();
+    //
+    test_copyIfReverse_allElementsMatchCondition();
+    test_copyIfReverse_allElementsNotSatisfyCondition();
+    test_copyIfReverse_mixedElements();
+    //
 }
 
-void test_getMinInArea_2_MaxInFirstRow() {
-    matrix m1 = createMatrixFromArray((int[]) {12, 2, 3,
-                                               4, 4, 6,
-                                               7, 11, 9}, 3, 3);
-    int min = getMinInArea(m1);
-
-    assert(min == 12);
-
-    freeMemMatrix(m1);
-}
-
-void test_sortByDistance_1() {
-    matrix haveM = createMatrixFromArray((int[]) {14, 8, 5, 4,
-                                                  3, 12, 8, 10,
-                                                  6, 1, 9, 2}, 3, 4);
-    sortByDistance(haveM);
-
-    matrix needM = createMatrixFromArray((int[]) {6, 1, 9, 2,
-                                                  3, 12, 8, 10,
-                                                  14, 8, 5, 4}, 3, 4);
-    assert(areTwoMatricesEqual(haveM, needM));
-
-    freeMemMatrix(haveM);
-    freeMemMatrix(needM);
-}
-
-void test_countEqClassesByRowsSum_1() {
-    matrix m1 = createMatrixFromArray((int[]) {7, 1,
-                                               2, 7,
-                                               5, 4,
-                                               4, 3,
-                                               1, 6,
-                                               8, 0}, 6, 2);
-
-    int totalEqClassesByRowsSum = countEqClassesByRowsSum(m1);
-
-    assert(totalEqClassesByRowsSum == 3);
-
-    freeMemMatrix(m1);
-}
-
-void test_countEqClassesByRowsSum_2_allEqual() {
-    matrix m1 = createMatrixFromArray((int[]) {7, 1,
-                                               0, 8,
-                                               2, 6,
-                                               3, 5}, 4, 2);
-
-    assert(countEqClassesByRowsSum(m1) == 1);
-
-    freeMemMatrix(m1);
-}
-
-void test_getNSpecialElement_1() {
-    matrix m = createMatrixFromArray((int[]) {3, 5, 5, 4,
-                                              2, 3, 6, 7,
-                                              12, 2, 1, 2}, 3, 4);
-
-    int totalNSpecialElement = getNSpecialElement(m);
-
-    assert(totalNSpecialElement == 2);
-
-    freeMemMatrix(m);
-}
-
-void test_swapPenultimateRow_1() {
-    matrix haveM = createMatrixFromArray((int[]) {1, 2, 3,
-                                                  4, 5, 6,
-                                                  7, 8, 1}, 3, 3);
-    swapPenultimateRow(haveM);
-
-    matrix needM = createMatrixFromArray((int[]) {1, 2, 3,
-                                                  1, 4, 7,
-                                                  7, 8, 1}, 3, 3);
-    assert(areTwoMatricesEqual(haveM, needM));
-
-    freeMemMatrix(haveM);
-    freeMemMatrix(needM);
-}
-
-void test_countNonDescendingRowsMatrices_1() {
-    matrix *ms = createArrayOfMatrixFromArray(
-            (int[]) {
-                    7, 1,
-                    1, 1,
-
-                    1, 6,
-                    2, 2,
-
-                    5, 4,
-                    2, 3,
-
-                    1, 3,
-                    7, 9
-            },
-            4, 2, 2);
-
-    assert(countNonDescendingRowsMatrices(ms, 4) == 2);
-
-    freeMemMatrices(ms, 4);
-}
-
-void test_countZeroRows_1() {
-    matrix m = createMatrixFromArray(
-            (int[]) {
-                    0, 0,
-                    1, 0,
-                    0, 0,
-            },
-            3, 2);
-
-    assert(countZeroRows(m) == 2);
-
-    freeMemMatrix(m);
-}
-
-void test_printMatrixWithMaxZeroRows_1() {
-    matrix *ms = createArrayOfMatrixFromArray((int[]) {0, 1,
-                                                       0, 1,
-                                                       1, 0,
-
-                                                       1, 1,
-                                                       1, 0,
-                                                       1, 1,
-
-                                                       0, 0,
-                                                       0, 0,
-                                                       1, 1,
-
-                                                       0, 0,
-                                                       1, 0,
-                                                       0, 0,
-
-                                                       1, 0,
-                                                       1, 1,
-                                                       0, 1}, 5, 3, 2);
-
-    printMatrixWithMaxZeroRows(ms, 5);
-}
-
-void test_printMatrixWithMinOfMaxAbsolutValue_1() {
-    matrixF *ms = createArrayOfMatrixFromArrayF((float[]) {
-            0, 0,
-            0, 0,
-            0, 0,
-
-            1, 100.f,
-            1, 1,
-            1, 1,
-
-            0, 0,
-            0, 0,
-            4.f, 111111.f,
-
-            0, 0,
-            0, 10.f,
-            0, 0,
-
-            0, 0,
-            0, 1,
-            100.f, 1}, 5, 3, 2);
-
-    printMatrixWithMinOfMaxAbsolutValue(ms, 5);
-}
-
-void test() {
-    test_swapRowsWithMinAndMaxElements_1();
-    test_sortRowsByMinElement_1();
-    test_sortColsByMinElement_1();
-    test_getSquareOfMatrixIfSymmetric_1();
-    test_getSquareOfMatrixIfSymmetric_2();
-    test_transposeIfMatrixHasNotEqualSumOfRows_1();
-    test_transposeIfMatrixHasNotEqualSumOfRows_2();
-    test_isMutuallyInverseMatrices_1();
-    test_isMutuallyInverseMatrices_2();
-    test_findSumOfMaxesOfPseudoDiagonal_1();
-    test_getMinInArea_1();
-    test_getMinInArea_2_MaxInFirstRow();
-    test_sortByDistance_1();
-    test_countEqClassesByRowsSum_1();
-    test_countEqClassesByRowsSum_2_allEqual();
-    test_getNSpecialElement_1();
-    test_swapPenultimateRow_1();
-    test_countNonDescendingRowsMatrices_1();
-    test_countZeroRows_1();
-    test_printMatrixWithMaxZeroRows_1(); // вывод
-    test_printMatrixWithMinOfMaxAbsolutValue_1(); // вывод
+void test_tasks(){
+    test_removeNonLetters_();
 }
 
 int main() {
-    test();
-
+    test_libs_string();
+    test_tasks();
 
     return 0;
 }
