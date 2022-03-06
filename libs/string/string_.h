@@ -5,6 +5,7 @@
 #include <ctype.h>
 #include <memory.h>
 #include <string.h>
+#include <assert.h>
 
 #include "../../libs/algorithms/algorithms.h"
 

@@ -4,4 +4,4 @@ add_library (string
 
         tasks/removeNonLetters.h
         tasks/removeExtraSpaces.h
-        tasks/removeNumbersAndLetters.h tasks/replacementNumbersToSpace.h)
+        tasks/removeNumbersAndLetters.h tasks/replacementNumbersToSpace.h tasks/replace.h tasks/areLexicographicallyOrdered.h)

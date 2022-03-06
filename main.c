@@ -1,10 +1,11 @@
 #include "libs/string/string_.h"
-#include <assert.h>
 
 #include "libs/string/tasks/removeNonLetters.h"
 #include "libs/string/tasks/removeExtraSpaces.h"
 #include "libs/string/tasks/removeNumbersAndLetters.h"
 #include "libs/string/tasks/replacementNumbersToSpace.h"
+#include "libs/string/tasks/replace.h"
+#include "libs/string/tasks/areLexicographicallyOrdered.h"
 
 void test_strlen() {
     char s[6] = "Hello";
@@ -241,6 +242,8 @@ void test_tasks(){
     test_removeExtraSpaces(); // 2
     test_removeNumbersAndLetters_(); // 3
     test_replacementNumbersToSpaces(); // 4
+    //test_replace(); //5
+    test_areLexicographicallyOrdered(); //6 просто assert
 }
 
 int main() {

@@ -12,8 +12,10 @@ CMakeFiles/untitled3.dir/libs/string/string_.c.obj
 CMakeFiles/untitled3.dir/main.c.obj
  C:/Users/vadim/CLionProjects/untitled3/libs/algorithms/algorithms.h
  C:/Users/vadim/CLionProjects/untitled3/libs/string/string_.h
+ C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/areLexicographicallyOrdered.h
  C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/removeExtraSpaces.h
  C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/removeNonLetters.h
  C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/removeNumbersAndLetters.h
+ C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/replace.h
  C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/replacementNumbersToSpace.h
  C:/Users/vadim/CLionProjects/untitled3/main.c

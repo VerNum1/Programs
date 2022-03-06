@@ -222,6 +222,9 @@
 			<Option target="untitled3"/>
 			<Option target="string"/>
 		</Unit>
+		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/areLexicographicallyOrdered.h">
+			<Option target="string"/>
+		</Unit>
 		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/removeExtraSpaces.h">
 			<Option target="string"/>
 		</Unit>
@@ -229,6 +232,9 @@
 			<Option target="string"/>
 		</Unit>
 		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/removeNumbersAndLetters.h">
+			<Option target="string"/>
+		</Unit>
+		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/replace.h">
 			<Option target="string"/>
 		</Unit>
 		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/replacementNumbersToSpace.h">
