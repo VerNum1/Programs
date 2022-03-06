@@ -225,6 +225,9 @@
 		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/areLexicographicallyOrdered.h">
 			<Option target="string"/>
 		</Unit>
+		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/printReverseWordsOnRows.h">
+			<Option target="string"/>
+		</Unit>
 		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/removeExtraSpaces.h">
 			<Option target="string"/>
 		</Unit>

@@ -4,11 +4,6 @@
 #include "../../string/string_.h"
 #include <stdbool.h>
 
-typedef struct WordDescriptor {
-    char *begin; // позиция начала слова
-    char *end; // позиция первого символа, после последнего символа слова
-} WordDescriptor;
-
 bool getWord(char *beginSearch, WordDescriptor *word) {
     word->begin = findNonSpace_(beginSearch);
     if (*word->begin == '\0')

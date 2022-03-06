@@ -6,6 +6,7 @@
 #include "libs/string/tasks/replacementNumbersToSpace.h"
 #include "libs/string/tasks/replace.h"
 #include "libs/string/tasks/areLexicographicallyOrdered.h"
+#include "libs/string/tasks/printReverseWordsOnRows.h"
 
 void test_strlen() {
     char s[6] = "Hello";
@@ -244,6 +245,7 @@ void test_tasks(){
     test_replacementNumbersToSpaces(); // 4
     //test_replace(); //5
     test_areLexicographicallyOrdered(); //6 просто assert
+    test_printReverseWordsOnRows(); // 7 // input: "Hello word!"
 }
 
 int main() {
