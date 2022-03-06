@@ -83,9 +83,9 @@ void test_removeDigitToStart_onlyLetters() {
 }
 
 void test_removeDigitToStart_manyNumbersAtWord() {
-    char s[MAX_STRING_SIZE] = "Hi123 4Rand56";
+    char s[MAX_STRING_SIZE] = "Hello12345 12Heel34";
     removeDigitToStart(s);
-    ASSERT_STRING("123Hi 456Rand", s);
+    ASSERT_STRING("12345Hello 1234Heel", s);
 }
 
 void test_removeNumbersAndLetters_() {

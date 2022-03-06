@@ -9,16 +9,13 @@
 #include "../../libs/algorithms/algorithms.h"
 
 #define MAX_STRING_SIZE 100
+#define MAX_N_WORDS_IN_STRING 100
+#define MAX_WORD_SIZE 20
 
 #define ASSERT_STRING(expected, got) assertString(expected, got, \
 __FILE__ , __FUNCTION__ , __LINE__ )
 
 char stringBuffer [MAX_STRING_SIZE + 1];
-
-
-# define MAX_STRING_SIZE 100
-# define MAX_N_WORDS_IN_STRING 100
-# define MAX_WORD_SIZE 20
 
 // возвращает количество символов в строке
 // (не считая ноль-символ)
