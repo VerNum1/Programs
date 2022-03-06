@@ -222,22 +222,13 @@
 			<Option target="untitled3"/>
 			<Option target="string"/>
 		</Unit>
-		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/printWordsNonEqualLastWord.c">
-			<Option target="string"/>
-		</Unit>
-		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/printWordsNonEqualLastWord.h">
-			<Option target="string"/>
-		</Unit>
-		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/removeExtraSpaces.c">
-			<Option target="string"/>
-		</Unit>
 		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/removeExtraSpaces.h">
 			<Option target="string"/>
 		</Unit>
-		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/removeNonLetters.c">
+		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/removeNonLetters.h">
 			<Option target="string"/>
 		</Unit>
-		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/removeNonLetters.h">
+		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/removeNumbersAndLetters.h">
 			<Option target="string"/>
 		</Unit>
 		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/main.c">

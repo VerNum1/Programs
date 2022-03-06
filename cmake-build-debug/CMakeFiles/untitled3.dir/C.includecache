@@ -17,6 +17,8 @@ ctype.h
 -
 memory.h
 -
+string.h
+-
 ../../libs/algorithms/algorithms.h
 C:/Users/vadim/CLionProjects/untitled3/libs/algorithms/algorithms.h
 
@@ -28,6 +30,12 @@ C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/removeNonLetters.h
 ../../string/string_.h
 C:/Users/vadim/CLionProjects/untitled3/libs/string/string_.h
 
+C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/removeNumbersAndLetters.h
+../../string/string_.h
+C:/Users/vadim/CLionProjects/untitled3/libs/string/string_.h
+stdbool.h
+-
+
 C:/Users/vadim/CLionProjects/untitled3/main.c
 libs/string/string_.h
 C:/Users/vadim/CLionProjects/untitled3/libs/string/string_.h
@@ -37,4 +45,6 @@ libs/string/tasks/removeNonLetters.h
 C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/removeNonLetters.h
 libs/string/tasks/removeExtraSpaces.h
 C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/removeExtraSpaces.h
+libs/string/tasks/removeNumbersAndLetters.h
+C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/removeNumbersAndLetters.h
 
