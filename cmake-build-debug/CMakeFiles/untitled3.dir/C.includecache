@@ -36,6 +36,8 @@ C:/Users/vadim/CLionProjects/untitled3/libs/string/string_.h
 stdbool.h
 -
 
+C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/replacementNumbersToSpace.h
+
 C:/Users/vadim/CLionProjects/untitled3/main.c
 libs/string/string_.h
 C:/Users/vadim/CLionProjects/untitled3/libs/string/string_.h
@@ -47,4 +49,6 @@ libs/string/tasks/removeExtraSpaces.h
 C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/removeExtraSpaces.h
 libs/string/tasks/removeNumbersAndLetters.h
 C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/removeNumbersAndLetters.h
+libs/string/tasks/replacementNumbersToSpace.h
+C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/replacementNumbersToSpace.h
 

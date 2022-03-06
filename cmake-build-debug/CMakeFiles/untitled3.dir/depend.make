@@ -15,4 +15,5 @@ CMakeFiles/untitled3.dir/main.c.obj: \
  ../libs/string/tasks/removeExtraSpaces.h \
  ../libs/string/tasks/removeNonLetters.h \
  ../libs/string/tasks/removeNumbersAndLetters.h \
+ ../libs/string/tasks/replacementNumbersToSpace.h \
  ../main.c

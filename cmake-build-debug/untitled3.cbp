@@ -231,6 +231,9 @@
 		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/removeNumbersAndLetters.h">
 			<Option target="string"/>
 		</Unit>
+		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/replacementNumbersToSpace.h">
+			<Option target="string"/>
+		</Unit>
 		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/main.c">
 			<Option target="untitled3"/>
 		</Unit>

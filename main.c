@@ -4,6 +4,7 @@
 #include "libs/string/tasks/removeNonLetters.h"
 #include "libs/string/tasks/removeExtraSpaces.h"
 #include "libs/string/tasks/removeNumbersAndLetters.h"
+#include "libs/string/tasks/replacementNumbersToSpace.h"
 
 void test_strlen() {
     char s[6] = "Hello";
@@ -239,6 +240,7 @@ void test_tasks(){
     test_removeNonLetters(); // 1
     test_removeExtraSpaces(); // 2
     test_removeNumbersAndLetters_(); // 3
+    test_replacementNumbersToSpaces(); // 4
 }
 
 int main() {
