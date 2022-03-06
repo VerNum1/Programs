@@ -18,14 +18,17 @@ size_t isPalindromeWord(char *begin, char *end) {
 size_t getTotalPalindromesWords(char *s) {
     char *endS = getEndOfString(s);
     char *beginSearch = findNonSpace_(s);
+
     size_t countPalindromes = 0;
 
     char *commaPos = find_(beginSearch, endS, ',');
+
     bool lastComma = *commaPos == '\0' && endS - beginSearch != 0;
+
     while (*commaPos != '\0' || lastComma) {
         beginSearch = findNonSpace_(beginSearch);
 
-        countPalindromes += isPalindromeWord(beginSearch, commaPos);
+        countPalindromes += isPalindromeWord(beginSearch, commaPos - 1);
 
         beginSearch = commaPos + 1;
 

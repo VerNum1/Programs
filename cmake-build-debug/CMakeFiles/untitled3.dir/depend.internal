@@ -12,6 +12,7 @@ CMakeFiles/untitled3.dir/libs/string/string_.c.obj
 CMakeFiles/untitled3.dir/main.c.obj
  C:/Users/vadim/CLionProjects/untitled3/libs/algorithms/algorithms.h
  C:/Users/vadim/CLionProjects/untitled3/libs/string/string_.h
+ C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/alternateWords.h
  C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/areLexicographicallyOrdered.h
  C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/getPalindromWords.h
  C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/printReverseWordsOnRows.h
@@ -20,4 +21,5 @@ CMakeFiles/untitled3.dir/main.c.obj
  C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/removeNumbersAndLetters.h
  C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/replace.h
  C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/replacementNumbersToSpace.h
+ C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/reverseWords.h
  C:/Users/vadim/CLionProjects/untitled3/main.c

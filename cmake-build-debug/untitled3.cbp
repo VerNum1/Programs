@@ -222,6 +222,9 @@
 			<Option target="untitled3"/>
 			<Option target="string"/>
 		</Unit>
+		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/alternateWords.h">
+			<Option target="string"/>
+		</Unit>
 		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/areLexicographicallyOrdered.h">
 			<Option target="string"/>
 		</Unit>
@@ -244,6 +247,9 @@
 			<Option target="string"/>
 		</Unit>
 		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/replacementNumbersToSpace.h">
+			<Option target="string"/>
+		</Unit>
+		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/reverseWords.h">
 			<Option target="string"/>
 		</Unit>
 		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/main.c">

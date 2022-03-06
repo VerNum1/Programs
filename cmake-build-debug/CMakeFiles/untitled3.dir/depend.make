@@ -12,6 +12,7 @@ CMakeFiles/untitled3.dir/libs/string/string_.c.obj: \
 CMakeFiles/untitled3.dir/main.c.obj: \
  ../libs/algorithms/algorithms.h \
  ../libs/string/string_.h \
+ ../libs/string/tasks/alternateWords.h \
  ../libs/string/tasks/areLexicographicallyOrdered.h \
  ../libs/string/tasks/getPalindromWords.h \
  ../libs/string/tasks/printReverseWordsOnRows.h \
@@ -20,4 +21,5 @@ CMakeFiles/untitled3.dir/main.c.obj: \
  ../libs/string/tasks/removeNumbersAndLetters.h \
  ../libs/string/tasks/replace.h \
  ../libs/string/tasks/replacementNumbersToSpace.h \
+ ../libs/string/tasks/reverseWords.h \
  ../main.c
