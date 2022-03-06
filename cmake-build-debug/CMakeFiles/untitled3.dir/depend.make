@@ -13,6 +13,8 @@ CMakeFiles/untitled3.dir/main.c.obj: \
  ../libs/algorithms/algorithms.h \
  ../libs/string/string_.h \
  ../libs/string/tasks/areLexicographicallyOrdered.h \
+ ../libs/string/tasks/getPalindromWords.h \
+ ../libs/string/tasks/printReverseWordsOnRows.h \
  ../libs/string/tasks/removeExtraSpaces.h \
  ../libs/string/tasks/removeNonLetters.h \
  ../libs/string/tasks/removeNumbersAndLetters.h \

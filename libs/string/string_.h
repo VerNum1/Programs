@@ -6,6 +6,7 @@
 #include <memory.h>
 #include <string.h>
 #include <assert.h>
+#include <stdbool.h>
 
 #include "../../libs/algorithms/algorithms.h"
 
@@ -88,9 +89,21 @@ char *copyIf_(char *beginSource, const char *endSource,
 char *copyIfReverse_(char *rbeginSource, const char *rendSource,
                      char *beginDestination, int (*f)(int));
 
+bool getWordReverse(char *rbegin, const char *rend, WordDescriptor *word);
+
+bool getWord(char *beginSearch, WordDescriptor *word);
+
+void reverseDigitToStart(WordDescriptor word);
+
+void digitToEnd(WordDescriptor word);
+
+void reverseDigitToEnd(WordDescriptor word);
+
 // функция для тестирования
 void assertString(const char *expected, char *got,
                   char const *fileName, char const *funcName,
                   int line);
+
+
 
 #endif

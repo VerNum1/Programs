@@ -4,44 +4,6 @@
 #include "../../string/string_.h"
 #include <stdbool.h>
 
-bool getWord(char *beginSearch, WordDescriptor *word) {
-    word->begin = findNonSpace_(beginSearch);
-    if (*word->begin == '\0')
-        return false;
-
-    word->end = findSpace_(word->begin);
-
-    return true;
-}
-
-bool getWordReverse(char *rbegin, const char *rend, WordDescriptor *word) {
-    word->begin = findNonSpaceReverse_(rbegin, rend);
-    if (word->begin == rend)
-        return false;
-
-    word->end = findNonSpaceReverse_(word->begin, rend);
-
-    return true;
-}
-
-void reverseDigitToStart(WordDescriptor word) {
-    char *endStringBuffer = copy_(word.begin, word.end, stringBuffer);
-    char *recPosition = copyIfReverse_(endStringBuffer - 1, stringBuffer - 1, word.begin, isdigit);
-    copyIf_(stringBuffer, endStringBuffer, recPosition, isalpha);
-}
-
-void digitToEnd(WordDescriptor word) {
-    char *endStringBuffer = copy_(word.begin, word.end, stringBuffer);
-    char *recPosition = copyIf_(endStringBuffer - 1, stringBuffer - 1, word.begin, isalpha);
-    copyIf_(stringBuffer, endStringBuffer, recPosition, isdigit);
-}
-
-void reverseDigitToEnd(WordDescriptor word) {
-    char *endStringBuffer = copy_(word.begin, word.end, stringBuffer);
-    char *recPosition = copyIf_(endStringBuffer - 1, stringBuffer - 1, word.begin, isalpha);
-    copyIfReverse_(stringBuffer, endStringBuffer, recPosition, isdigit);
-}
-
 //
 void digitToStart(WordDescriptor word) {
     char *endStringBuffer = copy_(word.begin, word.end, stringBuffer);

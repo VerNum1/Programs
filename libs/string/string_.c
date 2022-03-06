@@ -84,6 +84,44 @@ char *copyIfReverse_(char *rbeginSource, const char *rendSource,
     return beginDestination;
 }
 
+bool getWordReverse(char *rbegin, const char *rend, WordDescriptor *word) {
+    word->begin = findNonSpaceReverse_(rbegin, rend);
+    if (word->begin == rend)
+        return false;
+
+    word->end = findNonSpaceReverse_(word->begin, rend);
+
+    return true;
+}
+
+bool getWord(char *beginSearch, WordDescriptor *word) {
+    word->begin = findNonSpace_(beginSearch);
+    if (*word->begin == '\0')
+        return false;
+
+    word->end = findSpace_(word->begin);
+
+    return true;
+}
+
+void reverseDigitToStart(WordDescriptor word) {
+    char *endStringBuffer = copy_(word.begin, word.end, stringBuffer);
+    char *recPosition = copyIfReverse_(endStringBuffer - 1, stringBuffer - 1, word.begin, isdigit);
+    copyIf_(stringBuffer, endStringBuffer, recPosition, isalpha);
+}
+
+void digitToEnd(WordDescriptor word) {
+    char *endStringBuffer = copy_(word.begin, word.end, stringBuffer);
+    char *recPosition = copyIf_(endStringBuffer - 1, stringBuffer - 1, word.begin, isalpha);
+    copyIf_(stringBuffer, endStringBuffer, recPosition, isdigit);
+}
+
+void reverseDigitToEnd(WordDescriptor word) {
+    char *endStringBuffer = copy_(word.begin, word.end, stringBuffer);
+    char *recPosition = copyIf_(endStringBuffer - 1, stringBuffer - 1, word.begin, isalpha);
+    copyIfReverse_(stringBuffer, endStringBuffer, recPosition, isdigit);
+}
+
 void assertString(const char *expected, char *got,
                   char const *fileName, char const *funcName,
                   int line) {
@@ -95,3 +133,4 @@ void assertString(const char *expected, char *got,
     } else
         fprintf(stderr, "%s - OK\n", funcName);
 }
+

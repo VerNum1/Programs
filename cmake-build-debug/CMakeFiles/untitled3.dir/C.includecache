@@ -21,10 +21,16 @@ string.h
 -
 assert.h
 -
+stdbool.h
+-
 ../../libs/algorithms/algorithms.h
 C:/Users/vadim/CLionProjects/untitled3/libs/algorithms/algorithms.h
 
 C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/areLexicographicallyOrdered.h
+../../string/string_.h
+C:/Users/vadim/CLionProjects/untitled3/libs/string/string_.h
+
+C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/getPalindromWords.h
 ../../string/string_.h
 C:/Users/vadim/CLionProjects/untitled3/libs/string/string_.h
 
@@ -67,4 +73,6 @@ libs/string/tasks/areLexicographicallyOrdered.h
 C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/areLexicographicallyOrdered.h
 libs/string/tasks/printReverseWordsOnRows.h
 C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/printReverseWordsOnRows.h
+libs/string/tasks/getPalindromWords.h
+C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/getPalindromWords.h
 
