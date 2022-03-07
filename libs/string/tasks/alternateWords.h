@@ -5,7 +5,7 @@
 
 char *alternateWords(char *string1, char *string2, char *s) {
     WordDescriptor w1, w2;
-    char *sCopy = s;
+    char *stringCopy = s;
     char *beginW1 = string1;
     char *beginW2 = string2;
 
@@ -25,11 +25,11 @@ char *alternateWords(char *string1, char *string2, char *s) {
             beginW2 = w2.end;
         }
     }
-    if (s != sCopy)
+    if (s != stringCopy)
         --s;
     *s = '\0';
 
-    return sCopy;
+    return stringCopy;
 }
 
 void test_alternatingWords_isEmptyStrings() {

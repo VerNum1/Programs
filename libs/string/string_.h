@@ -99,6 +99,8 @@ void digitToEnd(WordDescriptor word);
 
 void reverseDigitToEnd(WordDescriptor word);
 
+bool areWordsEqual_(WordDescriptor w1, WordDescriptor w2);
+
 // функция для тестирования
 void assertString(const char *expected, char *got,
                   char const *fileName, char const *funcName,

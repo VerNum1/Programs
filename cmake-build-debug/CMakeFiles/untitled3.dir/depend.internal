@@ -15,7 +15,9 @@ CMakeFiles/untitled3.dir/main.c.obj
  C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/alternateWords.h
  C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/areLexicographicallyOrdered.h
  C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/getPalindromWords.h
+ C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/isStringWithCoupleEqualWords.h
  C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/printReverseWordsOnRows.h
+ C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/printWordBeforeFirstWordWithA.h
  C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/removeExtraSpaces.h
  C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/removeNonLetters.h
  C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/removeNumbersAndLetters.h

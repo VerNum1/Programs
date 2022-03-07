@@ -24,19 +24,19 @@ void removeExtraSpaces(char *s) {
 void test_removeExtraSpaces_(){
     char s[] = "He    ll     o";
     removeExtraSpaces(s);
-    ASSERT_STRING(s, "He ll o");
+    ASSERT_STRING("He ll o", s);
 }
 
 void test_removeExtraSpaces_noSpaces(){
     char s[] = "removeExtraSpaces";
     removeExtraSpaces(s);
-    ASSERT_STRING(s, "removeExtraSpaces");
+    ASSERT_STRING("removeExtraSpaces", s);
 }
 
 void test_removeExtraSpaces_allSpaces(){
     char s[] = "    ";
     removeExtraSpaces(s);
-    ASSERT_STRING(s, "    ");
+    ASSERT_STRING("    ", s);
 }
 
 void test_removeExtraSpaces(){

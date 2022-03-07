@@ -122,6 +122,12 @@ void reverseDigitToEnd(WordDescriptor word) {
     copyIfReverse_(stringBuffer, endStringBuffer, recPosition, isdigit);
 }
 
+bool areWordsEqual_(WordDescriptor w1, WordDescriptor w2){
+    if (strcmp_(w1.begin, w2.begin) < 0)
+        return false;
+    return true;
+}
+
 void assertString(const char *expected, char *got,
                   char const *fileName, char const *funcName,
                   int line) {

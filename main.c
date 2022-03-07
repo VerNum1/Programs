@@ -10,6 +10,8 @@
 #include "libs/string/tasks/getPalindromWords.h"
 #include "libs/string/tasks/reverseWords.h"
 #include "libs/string/tasks/alternateWords.h"
+#include "libs/string/tasks/printWordBeforeFirstWordWithA.h"
+#include "libs/string/tasks/isStringWithCoupleEqualWords.h"
 
 void test_strlen() {
     char s[6] = "Hello";
@@ -241,6 +243,7 @@ void test_libs_string() {
     //
 }
 
+
 void test_tasks(){
     test_removeNonLetters(); // 1
     test_removeExtraSpaces(); // 2
@@ -251,12 +254,17 @@ void test_tasks(){
     test_printReverseWordsOnRows(); // 7 // input: "Hello word!"
     test_getTotalPalindromesWords(); // 8
     test_alternatingWords(); // 9
-    test_reverseWord(); // 10
+    //test_reverseWord(); // 10
+    test_getWordBeforeFirstWordWithA(); // 11
+
+    //test_isStringWithCoupleEqualWords(); // 13
+
 }
 
 int main() {
     test_libs_string();
     test_tasks();
+
 
     return 0;
 }

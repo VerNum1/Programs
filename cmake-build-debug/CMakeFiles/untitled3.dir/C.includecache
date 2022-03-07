@@ -38,7 +38,15 @@ C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/getPalindromWords.h
 ../../string/string_.h
 C:/Users/vadim/CLionProjects/untitled3/libs/string/string_.h
 
+C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/isStringWithCoupleEqualWords.h
+../../string/string_.h
+C:/Users/vadim/CLionProjects/untitled3/libs/string/string_.h
+
 C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/printReverseWordsOnRows.h
+
+C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/printWordBeforeFirstWordWithA.h
+../../string/string_.h
+C:/Users/vadim/CLionProjects/untitled3/libs/string/string_.h
 
 C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/removeExtraSpaces.h
 ../../string/string_.h
@@ -87,4 +95,8 @@ libs/string/tasks/reverseWords.h
 C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/reverseWords.h
 libs/string/tasks/alternateWords.h
 C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/alternateWords.h
+libs/string/tasks/printWordBeforeFirstWordWithA.h
+C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/printWordBeforeFirstWordWithA.h
+libs/string/tasks/isStringWithCoupleEqualWords.h
+C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/isStringWithCoupleEqualWords.h
 

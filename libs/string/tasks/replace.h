@@ -3,8 +3,6 @@
 
 #include "../../string/string_.h"
 
-
-
 void replacesWord(char *source, WordDescriptor word1, WordDescriptor word2, size_t w2Size) {
     while (w2Size != 0) {
         *source = *word2.begin;
@@ -35,13 +33,13 @@ void replace(char *source, char *w1, char *w2) {
 
 }
 void test_replace(){
-    char source[] = "adobe a b c ";
+    char source[] = "adobe a b c";
     char w1[] = "adobe";
     char w2[]= "pick";
 
     replace(source, w1, w2);
 
-    ASSERT_STRING("pick a b c ", source);
+    ASSERT_STRING("pick a b c", source);
 }
 
 #endif

@@ -1,0 +1,8 @@
+#ifndef UNTITLED3_GETSTRINGWITHNONEQUALOFLASTWORD_H
+#define UNTITLED3_GETSTRINGWITHNONEQUALOFLASTWORD_H
+
+#include "../../string/string_.h"
+
+
+
+#endif
