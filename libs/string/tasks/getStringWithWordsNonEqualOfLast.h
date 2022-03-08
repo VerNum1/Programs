@@ -3,14 +3,8 @@
 
 #include "../../string/string_.h"
 
-void getStringWithWordsNonEqualOfLast(char *s){
+void getStringWithWordsNonEqualOfLast(char *string) {
 
-    WordDescriptor lastWord;
-    getWordReverse(getEndOfString(s), s - 1, &lastWord);
-    WordDescriptor currentWord;
-
-    while (getWord(s, &currentWord)) {
-    }
 }
 
 void test_getStringWithWordsNonEqualOfLast_oneWord(){

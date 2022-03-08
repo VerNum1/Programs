@@ -1,13 +1,4 @@
 "D:\CLion 2021.2.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - MinGW Makefiles" C:\Users\vadim\CLionProjects\untitled3
 -- Configuring done
-CMake Error at libs/string/CMakeLists.txt:1 (add_library):
-  Cannot find source file:
-
-    tasks/getStringWithNonEqualOfLastWord.h
-
-
-CMake Error at libs/string/CMakeLists.txt:1 (add_library):
-  No SOURCES given to target: string
-
-
-CMake Generate step failed.  Build files cannot be regenerated correctly.
+-- Generating done
+-- Build files have been written to: C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug
