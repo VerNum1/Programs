@@ -12,6 +12,8 @@
 #include "libs/string/tasks/alternateWords.h"
 #include "libs/string/tasks/printWordBeforeFirstWordWithA.h"
 #include "libs/string/tasks/isStringWithCoupleEqualWords.h"
+#include "libs/string/tasks/getLastWordFirstStringInSecond.h"
+#include "libs/string/tasks/getStringWithWordsNonEqualOfLast.h"
 
 void test_strlen() {
     char s[6] = "Hello";
@@ -254,11 +256,12 @@ void test_tasks(){
     test_printReverseWordsOnRows(); // 7 // input: "Hello word!"
     test_getTotalPalindromesWords(); // 8
     test_alternatingWords(); // 9
-    //test_reverseWord(); // 10
+    test_reverseWord(); // 10
     test_getWordBeforeFirstWordWithA(); // 11
-
-    //test_isStringWithCoupleEqualWords(); // 13
-
+    //test_getLastWordFirstStringWitchFoundInSecond();//12
+    test_isStringWithCoupleEqualWords(); // 13
+    //;//
+    //test_getStringWithWordsNonEqualOfLast(); // 15
 }
 
 int main() {

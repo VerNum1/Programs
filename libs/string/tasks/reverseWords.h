@@ -3,14 +3,19 @@
 
 #include "../../string/string_.h"
 
-int isNonSpace(char *s) {
-    if (isspace(*s))
-        return 0;
-    return 1;
-}
+void reverseWord(char *s) {
+    char *copyString = s;
+    *copy_(s, getEndOfString(s), stringBuffer) = '\0';
+    getBagOfWords(&_bag, stringBuffer);
 
-void reverseWord(char *string) {
+    for (int i = _bag.size - 1; i >= 0; --i) {
+        s = copy_(_bag.words[i].begin, _bag.words[i].end, s);
+        *s++ = ' ';
+    }
+    if (s != copyString)
+        --s;
 
+    *s = '\0';
 }
 
 void test_reverseWord_emptyString() {
@@ -21,9 +26,9 @@ void test_reverseWord_emptyString() {
 }
 
 void test_reverseWord_simpleTest() {
-    char s[] = "hello world";
+    char s[] = "hello world da";
     reverseWord(s);
-    ASSERT_STRING("word hello", s);
+    ASSERT_STRING("da world hello", s);
 }
 
 void test_reverseWord() {

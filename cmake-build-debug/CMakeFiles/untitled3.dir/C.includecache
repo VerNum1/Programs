@@ -34,7 +34,15 @@ C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/areLexicographicallyOrd
 ../../string/string_.h
 C:/Users/vadim/CLionProjects/untitled3/libs/string/string_.h
 
+C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/getLastWordFirstStringInSecond.h
+../../string/string_.h
+C:/Users/vadim/CLionProjects/untitled3/libs/string/string_.h
+
 C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/getPalindromWords.h
+../../string/string_.h
+C:/Users/vadim/CLionProjects/untitled3/libs/string/string_.h
+
+C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/getStringWithWordsNonEqualOfLast.h
 ../../string/string_.h
 C:/Users/vadim/CLionProjects/untitled3/libs/string/string_.h
 
@@ -99,4 +107,8 @@ libs/string/tasks/printWordBeforeFirstWordWithA.h
 C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/printWordBeforeFirstWordWithA.h
 libs/string/tasks/isStringWithCoupleEqualWords.h
 C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/isStringWithCoupleEqualWords.h
+libs/string/tasks/getLastWordFirstStringInSecond.h
+C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/getLastWordFirstStringInSecond.h
+libs/string/tasks/getStringWithWordsNonEqualOfLast.h
+C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/getStringWithWordsNonEqualOfLast.h
 

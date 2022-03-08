@@ -3,46 +3,44 @@
 
 #include "../../string/string_.h"
 
+int isEqualWords(WordDescriptor w1, WordDescriptor w2) {
+    char *begin1 = w1.begin;
+    char *begin2 = w2.begin;
+    while (begin1 != w1.end - 1 && (*begin1 == *begin2))
+        begin1++, begin2++;
 
-bool isStringWithCoupleEqualWords(char *s){
-    WordDescriptor w1;
-    WordDescriptor w2;
-
-    bool equalWords = getWord(s, &w1);
-    if(getWord((w1.end), &w2) == false && equalWords == false)
-        return false;
-
-    while (w1.end != '\0'){
-        while (w2.end != '\0'){
-            if(areWordsEqual_(w1, w2))
-                equalWords = false;
-            getWord(w2.end, &w2);
-        }
-        getWord(w1.end, &w1);
-    }
-
-    return equalWords;
+    return *begin1 - *begin2;
 }
 
-void test_isStringWithCoupleEqualWords_equalWords(){
-    char s[] = "abc abc ";
+bool isStringWithCoupleEqualWords(char *s) {
+    getBagOfWords(&_bag, s);
+    for (int i = 0; i < _bag.size; ++i)
+        for (int j = i + 1; j < _bag.size; ++j)
+            if (isEqualWords(_bag.words[i], _bag.words[j]) == 0)
+                return true;
+
+    return false;
+}
+
+void test_isStringWithCoupleEqualWords_equalWords() {
+    char s[] = "AAA AAA  AAb AAb";
 
     assert(isStringWithCoupleEqualWords(s) == true);
 }
 
-void test_isStringWithCoupleEqualWords_NonEqualWords(){
+void test_isStringWithCoupleEqualWords_NonEqualWords() {
     char s[] = "abc abs";
 
     assert(isStringWithCoupleEqualWords(s) == false);
 }
 
-void test_isStringWithCoupleEqualWords_emptyString(){
+void test_isStringWithCoupleEqualWords_emptyString() {
     char s[] = "";
 
     assert(isStringWithCoupleEqualWords(s) == false);
 }
 
-void test_isStringWithCoupleEqualWords(){
+void test_isStringWithCoupleEqualWords() {
     test_isStringWithCoupleEqualWords_equalWords();
     test_isStringWithCoupleEqualWords_NonEqualWords();
     test_isStringWithCoupleEqualWords_emptyString();

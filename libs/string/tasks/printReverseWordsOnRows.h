@@ -1,14 +1,6 @@
 #ifndef UNTITLED3_PRINTREVERSEWORDSONROWS_H
 #define UNTITLED3_PRINTREVERSEWORDSONROWS_H
 
-void getBagOfWords(BagOfWords *bag, char *s) {
-    for (int i = 0; i < bag->size; ++i) {
-        WordDescriptor w1;
-        getWord(s, &w1);
-        bag->words[i] = w1;
-    }
-}
-
 char *copyReverse_(char *rbeginSource, const char *rendSource, char *beginDestination) {
     while (rbeginSource != rendSource) {
         *beginDestination++ = *rbeginSource;
@@ -29,7 +21,7 @@ void printReverseWordsOnRows(char *s) {
 }
 
 void test_printReverseWordsOnRows() {
-    char s[] = "Hello word!";
+    char s[] = "Hello word";
 
     printReverseWordsOnRows(s);
 }

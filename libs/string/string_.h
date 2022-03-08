@@ -101,6 +101,10 @@ void reverseDigitToEnd(WordDescriptor word);
 
 bool areWordsEqual_(WordDescriptor w1, WordDescriptor w2);
 
+bool isEqualWord_(WordDescriptor w1, WordDescriptor w2);
+
+void getBagOfWords(BagOfWords *bag, char *s);
+
 // функция для тестирования
 void assertString(const char *expected, char *got,
                   char const *fileName, char const *funcName,

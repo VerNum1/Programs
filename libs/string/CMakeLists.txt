@@ -4,4 +4,4 @@ add_library (string
 
         tasks/removeNonLetters.h
         tasks/removeExtraSpaces.h
-        tasks/removeNumbersAndLetters.h tasks/replacementNumbersToSpace.h tasks/replace.h tasks/areLexicographicallyOrdered.h tasks/printReverseWordsOnRows.h tasks/getPalindromWords.h tasks/reverseWords.h tasks/alternateWords.h tasks/printWordBeforeFirstWordWithA.h tasks/isStringWithCoupleEqualWords.h tasks/getStringWithNonEqualOfLastWord.h tasks/getLastWordFirstStringInSecond.h)
+        tasks/removeNumbersAndLetters.h tasks/replacementNumbersToSpace.h tasks/replace.h tasks/areLexicographicallyOrdered.h tasks/printReverseWordsOnRows.h tasks/getPalindromWords.h tasks/reverseWords.h tasks/alternateWords.h tasks/printWordBeforeFirstWordWithA.h tasks/isStringWithCoupleEqualWords.h tasks/getStringWithNonEqualOfLastWord.h tasks/getLastWordFirstStringInSecond.h tasks/getStringWithWordsNonEqualOfLast.h)
