@@ -50,6 +50,10 @@ C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/isStringWithCoupleEqual
 ../../string/string_.h
 C:/Users/vadim/CLionProjects/untitled3/libs/string/string_.h
 
+C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/isStringWithCoupleWordsWhichCompiledEqualLetters.h
+../../string/string_.h
+C:/Users/vadim/CLionProjects/untitled3/libs/string/string_.h
+
 C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/printReverseWordsOnRows.h
 
 C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/printWordBeforeFirstWordWithA.h
@@ -111,4 +115,6 @@ libs/string/tasks/getLastWordFirstStringInSecond.h
 C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/getLastWordFirstStringInSecond.h
 libs/string/tasks/getStringWithWordsNonEqualOfLast.h
 C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/getStringWithWordsNonEqualOfLast.h
+libs/string/tasks/isStringWithCoupleWordsWhichCompiledEqualLetters.h
+C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/isStringWithCoupleWordsWhichCompiledEqualLetters.h
 

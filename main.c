@@ -261,14 +261,14 @@ void test_tasks(){
     test_getWordBeforeFirstWordWithA(); // 11
     test_getLastWordFirstStringWitchFoundInSecond();//12
     test_isStringWithCoupleEqualWords(); // 13
-    test_task14();// 14
+    //test_task14();// 14
     //test_getStringWithWordsNonEqualOfLast(); // 15
-
 }
 
 int main() {
     test_libs_string();
     test_tasks();
+
 
 
     return 0;

@@ -21,7 +21,7 @@ void printReverseWordsOnRows(char *s) {
 }
 
 void test_printReverseWordsOnRows() {
-    char s[] = "Hello word";
+    char s[] = "Hello world";
 
     printReverseWordsOnRows(s);
 }

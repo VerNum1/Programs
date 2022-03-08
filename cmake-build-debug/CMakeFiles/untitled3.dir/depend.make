@@ -18,6 +18,7 @@ CMakeFiles/untitled3.dir/main.c.obj: \
  ../libs/string/tasks/getPalindromWords.h \
  ../libs/string/tasks/getStringWithWordsNonEqualOfLast.h \
  ../libs/string/tasks/isStringWithCoupleEqualWords.h \
+ ../libs/string/tasks/isStringWithCoupleWordsWhichCompiledEqualLetters.h \
  ../libs/string/tasks/printReverseWordsOnRows.h \
  ../libs/string/tasks/printWordBeforeFirstWordWithA.h \
  ../libs/string/tasks/removeExtraSpaces.h \
