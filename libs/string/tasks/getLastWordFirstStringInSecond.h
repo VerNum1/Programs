@@ -8,16 +8,15 @@ void wordDescriptorToString(WordDescriptor word, char *destination) {
     *copy_(word.begin, word.end, destination) = '\0';
 }
 
-WordDescriptor getLastWordFirstStringWitchFoundInSecond(char *string1, char *string2) {
-    getBagOfWords(&_bag, string1);
-    getBagOfWords(&_bag2, string2);
+WordDescriptor getLastWordFirstStringWitchFoundInSecond(char *s1, char *s2) {
+    getBagOfWords(&_bag, s1);
+    getBagOfWords(&_bag2, s2);
     for (int i = _bag.size - 1; i >= 0; --i) {
         for (int j = 0; j < _bag2.size; ++j)
-            if (isEqualWord_(_bag.words[i], _bag2.words[j]) == 0)
+            if (isEqualWords(_bag.words[i], _bag2.words[j]) == 0)
                 return _bag.words[i];
     }
-
-    WordDescriptor word = {'\0', '\0'};
+    WordDescriptor word = {NULL, NULL};
 
     return word;
 }

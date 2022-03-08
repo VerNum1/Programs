@@ -128,15 +128,13 @@ bool areWordsEqual_(WordDescriptor w1, WordDescriptor w2){
     return true;
 }
 
-bool isEqualWord_(WordDescriptor w1, WordDescriptor w2) {
-    char *begin = w1.begin;
-    while (*w1.begin < *w1.end) {
-        if (w1.begin != w2.begin)
-            return false;
-        (*w1.begin)++;
-        (*w2.begin)++;
+bool isEqualWords(WordDescriptor w1, WordDescriptor w2) {
+    while (w1.begin != w1.end - 1 && (*w1.begin == *w2.begin)) {
+        (w1.begin)++;
+        (w2.begin)++;
     }
-    return true;
+
+    return *w1.begin - *w2.begin;
 }
 
 void getBagOfWords(BagOfWords *bag, char *s) {

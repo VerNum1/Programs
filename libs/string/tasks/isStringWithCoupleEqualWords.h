@@ -3,15 +3,6 @@
 
 #include "../../string/string_.h"
 
-int isEqualWords(WordDescriptor w1, WordDescriptor w2) {
-    char *begin1 = w1.begin;
-    char *begin2 = w2.begin;
-    while (begin1 != w1.end - 1 && (*begin1 == *begin2))
-        begin1++, begin2++;
-
-    return *begin1 - *begin2;
-}
-
 bool isStringWithCoupleEqualWords(char *s) {
     getBagOfWords(&_bag, s);
     for (int i = 0; i < _bag.size; ++i)

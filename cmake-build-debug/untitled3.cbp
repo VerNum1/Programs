@@ -234,13 +234,13 @@
 		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/getPalindromWords.h">
 			<Option target="string"/>
 		</Unit>
-		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/getStringWithNonEqualOfLastWord.h">
-			<Option target="string"/>
-		</Unit>
 		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/getStringWithWordsNonEqualOfLast.h">
 			<Option target="string"/>
 		</Unit>
 		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/isStringWithCoupleEqualWords.h">
+			<Option target="string"/>
+		</Unit>
+		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/isStringWithCoupleWordsWhichCompiledEqualLetters.h">
 			<Option target="string"/>
 		</Unit>
 		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/printReverseWordsOnRows.h">

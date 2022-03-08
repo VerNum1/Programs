@@ -258,10 +258,11 @@ void test_tasks(){
     test_alternatingWords(); // 9
     test_reverseWord(); // 10
     test_getWordBeforeFirstWordWithA(); // 11
-    //test_getLastWordFirstStringWitchFoundInSecond();//12
+    test_getLastWordFirstStringWitchFoundInSecond();//12
     test_isStringWithCoupleEqualWords(); // 13
     //;//
     //test_getStringWithWordsNonEqualOfLast(); // 15
+
 }
 
 int main() {
