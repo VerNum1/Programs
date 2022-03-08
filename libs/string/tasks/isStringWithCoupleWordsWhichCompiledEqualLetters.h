@@ -3,31 +3,15 @@
 
 #include "../../string/string_.h"
 
-bool isWordsWithEqualLetters(WordDescriptor w1, WordDescriptor w2) {
-    bool isEqual = true;
-    while (*w1.begin < *w1.end) {
-        while (*w2.begin < *w2.end) {
-            if (w1.begin != w2.begin)
-                isEqual = false;
-            (*w2.begin)++;
-        }
-        (*w1.begin)++;
-    }
-
-    return isEqual;
-}
-
 bool isStringWithCoupleWordsWhichCompiledEqualLetters(char *s) {
-    if (*findNonSpace_(s) == '\0')
-        return false;
+    *copy_(s, getEndOfString(s), stringBuffer) = '\0';
 
-    getBagOfWords(&_bag, s);
+    getBagOfWords(&_bag, stringBuffer);
+
     for (int i = 0; i < _bag.size; ++i)
-        for (int j = i + 1; j < _bag.size; ++j)
-            if (isWordsWithEqualLetters(_bag.words[i], _bag.words[j]) == 0)
-                return false;
+        qsort(_bag.words[i].begin, _bag.words[i].end - _bag.words[i].begin, sizeof(char), cmp);
 
-    return true;
+    return isStringWithCoupleEqualWords(stringBuffer);
 }
 
 void test_task14_emptyString() {
@@ -37,7 +21,7 @@ void test_task14_emptyString() {
 }
 
 void test_task14_wordsWithEqualLetters() {
-    char s[MAX_STRING_SIZE] = "abc cab";
+    char s[MAX_STRING_SIZE] = "abc hgf klj cab";
 
     assert(isStringWithCoupleWordsWhichCompiledEqualLetters(s) == true);
 }

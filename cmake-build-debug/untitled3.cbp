@@ -222,6 +222,9 @@
 			<Option target="untitled3"/>
 			<Option target="string"/>
 		</Unit>
+		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/additionSmallerString.h">
+			<Option target="string"/>
+		</Unit>
 		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/alternateWords.h">
 			<Option target="string"/>
 		</Unit>
@@ -231,7 +234,7 @@
 		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/deleteWordFromString.h">
 			<Option target="string"/>
 		</Unit>
-		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/getLastWordFirstStringInSecond.h">
+		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/getLastWordFirstStringWitchFoundInSecond.h">
 			<Option target="string"/>
 		</Unit>
 		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/getPalindromWords.h">

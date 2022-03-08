@@ -3,16 +3,6 @@
 
 #include "../../string/string_.h"
 
-void replacesWord(char *source, WordDescriptor word1, WordDescriptor word2, size_t w2Size) {
-    while (w2Size != 0) {
-        *source = *word2.begin;
-        w2Size--;
-    }
-    while (word1.end - 1 - word2.begin != 0) {
-        *source = ' ';
-        word2.begin++;
-    }
-}
 void replace(char *source, char *w1, char *w2) {
     size_t w1Size = strlen(w1);
     size_t w2Size = strlen(w2);
@@ -28,10 +18,21 @@ void replace(char *source, char *w1, char *w2) {
         readPtr = stringBuffer;
         recPtr = source;
     }
-    char *copySource = source;
-    size_t copyW2Size = w2Size;
 
+    WordDescriptor curWord;
+    while (getWord(readPtr, &curWord)) {
+        recPtr = copy_(readPtr, curWord.begin, recPtr);
+        if (isEqualWords(curWord, word1) == 0) {
+            recPtr = copy_(word2.begin, word2.end, recPtr);
+        } else {
+            recPtr = copy_(curWord.begin, curWord.end, recPtr);
+        }
+        readPtr = curWord.end;
+    }
+
+    *recPtr = '\0';
 }
+
 void test_replace(){
     char source[] = "adobe a b c";
     char w1[] = "adobe";

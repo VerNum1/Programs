@@ -14,6 +14,6 @@ add_library (string
         tasks/alternateWords.h
         tasks/printWordBeforeFirstWordWithA.h
         tasks/isStringWithCoupleEqualWords.h
-        tasks/getLastWordFirstStringInSecond.h
+        tasks/getLastWordFirstStringWitchFoundInSecond.h
         tasks/getStringWithWordsNonEqualOfLast.h
-        tasks/isStringWithCoupleWordsWhichCompiledEqualLetters.h tasks/deleteWordFromString.h tasks/isStringWithAllLettersOfWord.h)
+        tasks/isStringWithCoupleWordsWhichCompiledEqualLetters.h tasks/deleteWordFromString.h tasks/isStringWithAllLettersOfWord.h tasks/additionSmallerString.h)

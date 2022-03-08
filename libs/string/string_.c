@@ -84,13 +84,12 @@ char *copyIfReverse_(char *rbeginSource, const char *rendSource,
     return beginDestination;
 }
 
-bool getWordReverse(char *rbegin, const char *rend, WordDescriptor *word) {
-    word->begin = findNonSpaceReverse_(rbegin, rend);
-    if (word->begin == rend)
+bool getWordReverse(char *rbegin, char *rend, WordDescriptor *word) {
+    word->end = findNonSpaceReverse_(rbegin, rend) + 1;
+    if (word->end == rend)
         return false;
 
-    word->end = findNonSpaceReverse_(word->begin, rend);
-
+    word->begin = findSpaceReverse_(word->end - 1, rend) + 1;
     return true;
 }
 
@@ -159,3 +158,25 @@ void assertString(const char *expected, char *got,
         fprintf(stderr, "%s - OK\n", funcName);
 }
 
+void deleteWordFromString(char *string, WordDescriptor deleteWord) {
+    char *copyS = string;
+    char *copyS1 = string;
+
+    WordDescriptor currentWord;
+
+    while (getWord(copyS, &currentWord)) {
+        if (isEqualWords(currentWord, deleteWord) != 0) {
+            string = copy_(currentWord.begin, currentWord.end, string);
+            *string++ = ' ';
+        }
+        copyS = currentWord.end;
+    }
+
+    if (string != copyS1)
+        --string;
+    *string = '\0';
+}
+
+int cmp(const void *a, const void *b) {
+    return *(const char *) a - *(const char *) b;
+}

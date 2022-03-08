@@ -23,8 +23,14 @@ assert.h
 -
 stdbool.h
 -
+stdlib.h
+-
 ../../libs/algorithms/algorithms.h
 C:/Users/vadim/CLionProjects/untitled3/libs/algorithms/algorithms.h
+
+C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/additionSmallerString.h
+../../string/string_.h
+C:/Users/vadim/CLionProjects/untitled3/libs/string/string_.h
 
 C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/alternateWords.h
 ../../string/string_.h
@@ -34,7 +40,11 @@ C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/areLexicographicallyOrd
 ../../string/string_.h
 C:/Users/vadim/CLionProjects/untitled3/libs/string/string_.h
 
-C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/getLastWordFirstStringInSecond.h
+C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/deleteWordFromString.h
+../../string/string_.h
+C:/Users/vadim/CLionProjects/untitled3/libs/string/string_.h
+
+C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/getLastWordFirstStringWitchFoundInSecond.h
 ../../string/string_.h
 C:/Users/vadim/CLionProjects/untitled3/libs/string/string_.h
 
@@ -115,12 +125,16 @@ libs/string/tasks/printWordBeforeFirstWordWithA.h
 C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/printWordBeforeFirstWordWithA.h
 libs/string/tasks/isStringWithCoupleEqualWords.h
 C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/isStringWithCoupleEqualWords.h
-libs/string/tasks/getLastWordFirstStringInSecond.h
-C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/getLastWordFirstStringInSecond.h
+libs/string/tasks/getLastWordFirstStringWitchFoundInSecond.h
+C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/getLastWordFirstStringWitchFoundInSecond.h
 libs/string/tasks/getStringWithWordsNonEqualOfLast.h
 C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/getStringWithWordsNonEqualOfLast.h
 libs/string/tasks/isStringWithCoupleWordsWhichCompiledEqualLetters.h
 C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/isStringWithCoupleWordsWhichCompiledEqualLetters.h
 libs/string/tasks/isStringWithAllLettersOfWord.h
 C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/isStringWithAllLettersOfWord.h
+libs/string/tasks/deleteWordFromString.h
+C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/deleteWordFromString.h
+libs/string/tasks/additionSmallerString.h
+C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/additionSmallerString.h
 

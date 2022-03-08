@@ -12,9 +12,11 @@ CMakeFiles/untitled3.dir/libs/string/string_.c.obj: \
 CMakeFiles/untitled3.dir/main.c.obj: \
  ../libs/algorithms/algorithms.h \
  ../libs/string/string_.h \
+ ../libs/string/tasks/additionSmallerString.h \
  ../libs/string/tasks/alternateWords.h \
  ../libs/string/tasks/areLexicographicallyOrdered.h \
- ../libs/string/tasks/getLastWordFirstStringInSecond.h \
+ ../libs/string/tasks/deleteWordFromString.h \
+ ../libs/string/tasks/getLastWordFirstStringWitchFoundInSecond.h \
  ../libs/string/tasks/getPalindromWords.h \
  ../libs/string/tasks/getStringWithWordsNonEqualOfLast.h \
  ../libs/string/tasks/isStringWithAllLettersOfWord.h \
