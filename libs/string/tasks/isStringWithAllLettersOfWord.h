@@ -3,17 +3,19 @@
 
 #include "../../string/string_.h"
 
+#define MAX_SIZE_ARR 100
+
 bool isStringWithAllLettersOfWord(char *string, char *word) {
-    static char stringArray[255];
+    static char arrayOfString[MAX_SIZE_ARR];
 
     if (*word == '\0' || *string == '\0')
         return false;
     while (*string != '\0') {
-        stringArray[*string]++;
+        arrayOfString[*string]++;
         string++;
     }
     while (*word != '\0') {
-        if (!stringArray[*word])
+        if (!arrayOfString[*word])
             return false;
         word++;
     }
