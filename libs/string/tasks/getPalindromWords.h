@@ -19,7 +19,7 @@ size_t getTotalPalindromesWords(char *s) {
     char *endS = getEndOfString(s);
     char *beginSearch = findNonSpace_(s);
 
-    size_t countPalindromes = 0;
+    size_t countPalindromesWord = 0;
 
     char *commaPos = find_(beginSearch, endS, ',');
 
@@ -28,7 +28,7 @@ size_t getTotalPalindromesWords(char *s) {
     while (*commaPos != '\0' || lastComma) {
         beginSearch = findNonSpace_(beginSearch);
 
-        countPalindromes += isPalindromeWord(beginSearch, commaPos - 1);
+        countPalindromesWord += isPalindromeWord(beginSearch, commaPos - 1);
 
         beginSearch = commaPos + 1;
 
@@ -38,7 +38,8 @@ size_t getTotalPalindromesWords(char *s) {
         commaPos = find_(beginSearch, endS, ',');
         lastComma = *commaPos == '\0';
     }
-    return countPalindromes;
+
+    return countPalindromesWord;
 }
 
 void test_getTotalPalindromesWords_manyWords(){

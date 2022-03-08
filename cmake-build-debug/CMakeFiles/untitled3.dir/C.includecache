@@ -46,6 +46,10 @@ C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/getStringWithWordsNonEq
 ../../string/string_.h
 C:/Users/vadim/CLionProjects/untitled3/libs/string/string_.h
 
+C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/isStringWithAllLettersOfWord.h
+../../string/string_.h
+C:/Users/vadim/CLionProjects/untitled3/libs/string/string_.h
+
 C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/isStringWithCoupleEqualWords.h
 ../../string/string_.h
 C:/Users/vadim/CLionProjects/untitled3/libs/string/string_.h
@@ -117,4 +121,6 @@ libs/string/tasks/getStringWithWordsNonEqualOfLast.h
 C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/getStringWithWordsNonEqualOfLast.h
 libs/string/tasks/isStringWithCoupleWordsWhichCompiledEqualLetters.h
 C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/isStringWithCoupleWordsWhichCompiledEqualLetters.h
+libs/string/tasks/isStringWithAllLettersOfWord.h
+C:/Users/vadim/CLionProjects/untitled3/libs/string/tasks/isStringWithAllLettersOfWord.h
 

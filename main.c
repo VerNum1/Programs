@@ -15,6 +15,7 @@
 #include "libs/string/tasks/getLastWordFirstStringInSecond.h"
 #include "libs/string/tasks/getStringWithWordsNonEqualOfLast.h"
 #include "libs/string/tasks/isStringWithCoupleWordsWhichCompiledEqualLetters.h"
+#include "libs/string/tasks/isStringWithAllLettersOfWord.h"
 
 void test_strlen() {
     char s[6] = "Hello";
@@ -263,6 +264,7 @@ void test_tasks(){
     test_isStringWithCoupleEqualWords(); // 13
     //test_task14();// 14
     //test_getStringWithWordsNonEqualOfLast(); // 15
+    test_isStringWithAllLettersOfWord(); //19
 }
 
 int main() {
