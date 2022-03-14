@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_C
   "C:/Users/vadim/CLionProjects/untitled3/libs/algorithms/algorithms.c" "C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/algorithms/CMakeFiles/algorithms.dir/algorithms.c.obj"
   "C:/Users/vadim/CLionProjects/untitled3/libs/algorithms/array/array.c" "C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/algorithms/CMakeFiles/algorithms.dir/array/array.c.obj"
+  "C:/Users/vadim/CLionProjects/untitled3/libs/algorithms/array/sort.c" "C:/Users/vadim/CLionProjects/untitled3/cmake-build-debug/libs/algorithms/CMakeFiles/algorithms.dir/array/sort.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

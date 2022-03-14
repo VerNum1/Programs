@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/algorithms.dir/algorithms.c.obj"
   "CMakeFiles/algorithms.dir/array/array.c.obj"
+  "CMakeFiles/algorithms.dir/array/sort.c.obj"
   "libalgorithms.a"
   "libalgorithms.pdb"
 )

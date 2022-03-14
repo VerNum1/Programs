@@ -25,7 +25,7 @@ void additionSmallerString(char *s1, char *s2, int n1, int n2) {
     }
 }
 
-void addMissingWords(char *string1, char *string2, int n1, int n2) {
+void additionString(char *string1, char *string2, int n1, int n2) {
     if (n2 > n1) {
         additionSmallerString(string1, string2, n1, n2);
 
@@ -39,7 +39,7 @@ void test_additionSmallerString_firstStringMore() {
     char s1[MAX_STRING_SIZE] = "hello world";
     char s2[MAX_STRING_SIZE] = "empty string of";
 
-    addMissingWords(s1, s2, 2, 4);
+    additionString(s1, s2, 2, 4);
 
     ASSERT_STRING("hello world of string empty", s1);
 }
@@ -48,7 +48,7 @@ void test_additionSmallerString_oneWord() {
     char s1[MAX_STRING_SIZE] = "abs";
     char s2[MAX_STRING_SIZE] = "";
 
-    addMissingWords(s1, s2, 1, 0);
+    additionString(s1, s2, 1, 0);
 
     ASSERT_STRING("abs", s2);
 }
@@ -57,7 +57,7 @@ void test_additionSmallerString_emptyStrings() {
     char s1[MAX_STRING_SIZE] = "";
     char s2[MAX_STRING_SIZE] = "";
 
-    addMissingWords(s1, s2, 0, 0);
+    additionString(s1, s2, 0, 0);
 
     ASSERT_STRING("", s1);
     ASSERT_STRING("", s2);

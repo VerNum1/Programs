@@ -1,280 +1,120 @@
-#include "libs/string/string_.h"
+#include <stdbool.h>
+#include <assert.h>
+#include <time.h>
 
-#include "libs/string/tasks/removeNonLetters.h"
-#include "libs/string/tasks/removeExtraSpaces.h"
-#include "libs/string/tasks/removeNumbersAndLetters.h"
-#include "libs/string/tasks/replacementNumbersToSpace.h"
-#include "libs/string/tasks/replace.h"
-#include "libs/string/tasks/areLexicographicallyOrdered.h"
-#include "libs/string/tasks/printReverseWordsOnRows.h"
-#include "libs/string/tasks/getPalindromWords.h"
-#include "libs/string/tasks/reverseWords.h"
-#include "libs/string/tasks/alternateWords.h"
-#include "libs/string/tasks/printWordBeforeFirstWordWithA.h"
-#include "libs/string/tasks/isStringWithCoupleEqualWords.h"
-#include "libs/string/tasks/getLastWordFirstStringWitchFoundInSecond.h"
-#include "libs/string/tasks/getStringWithWordsNonEqualOfLast.h"
-#include "libs/string/tasks/isStringWithCoupleWordsWhichCompiledEqualLetters.h"
-#include "libs/string/tasks/isStringWithAllLettersOfWord.h"
-#include "libs/string/tasks/deleteWordFromString.h"
-#include "libs/string/tasks/additionSmallerString.h"
+#include "libs/algorithms/array/sort.h"
 
-void test_strlen() {
-    char s[6] = "Hello";
+#define ARRAY_SIZE(a) sizeof(a) / sizeof(a[0]);
 
-    assert(strlen_(s) == 5);
-}
+#define TIME_TEST(testCode, time) {\
+ clock_t start_time = clock();\
+ testCode\
+    clock_t end_time = clock();\
+ clock_t sort_time = end_time - start_time;\
+ time = (double) sort_time / CLOCKS_PER_SEC;\
+  }
 
-void test_strlen_zeroElements() {
-    char s[] = "";
 
-    assert(strlen_(s) == 0);
-}
+// функция сортировки
+typedef struct SortFunc {
+    void (*sort )(int *a, size_t n); // указатель на функцию сортировки
+    char name[64]; // имя сортировки, используемое при выводе
+} SortFunc;
 
-void test_find_notRepeatingElements() {
-    char s[11] = "ctpvprogra";
-    char ch = 118;
-    char *symbol = find_(&s[0], &s[10], ch);
-    assert(*symbol == s[3]);
-}
+// функция генерации
+typedef struct GeneratingFunc {
+    void (*generate )(int *a, size_t n); // указатель на функцию
+    // генерации последоват.
+    char name[64];    // имя генератора,
+    // используемое при выводе
+} GeneratingFunc;
 
-void test_find_withRepeatingElementsNotNormal() {
-    char s[12] = "ctpvpovitis";
-    char ch = 118; // v
-    char *symbol = find_(&s[0], &s[5], ch);
-    assert(*symbol == s[6]);
-}
 
-void test_findNonSpace_firstElementNonSpace() {
-    char s[7] = "abc de";
-    char *symbol = findNonSpace_(&s[0]);
-    assert(symbol == &s[0]);
-}
+void checkTime(void (*sortFunc)(int *, size_t),
+               void (*generateFunc)(int *, size_t),
+               size_t size, char *experimentName) {
+    static size_t runCounter = 1;
 
-void test_findNonSpace_afterFirstElementNonSpace() {
-    char s[9] = "   hello";
-    char *symbol = findNonSpace_(&s[0]);
-    assert(symbol == &s[3]);
-}
+    // генерация последовательности
+    static int innerBuffer[100000];
+    generateFunc(innerBuffer, size);
+    printf("Run #%zu | ", runCounter++);
+    printf("Name:  %s\n", experimentName);
 
-void test_findNonSpace_allElementsIsSpace() {
-    char s[7] = "      ";
-    char *symbol = findNonSpace_(&s[0]);
-    assert(symbol == &s[6]);
-}
+    // замер времени
+    double time;
+    TIME_TEST({
+                  sortFunc(innerBuffer, size);
+              }, time);
 
-void test_findSpace_firstSpace() {
-    char s[12] = " let me die";
-    char *symbol = findSpace_(&s[0]);
-    assert(symbol == &s[0]);
-}
+    // результаты замера
+    printf("Status:  ");
+    if (isOrdered(innerBuffer, size)) {
+        printf("OK! Time: %.3f s.\n", time);
 
-void test_findSpace_SecondElementSpace() {
-    char s[5] = "a bcd";
-    char *symbol = findSpace_(&s[0]);
-    assert(symbol == &s[1]);
-}
+        // запись в файл
+        char filename[256];
+        sprintf(filename, "./data/%s.csv", "experiment");
+        FILE *f = fopen(filename, "a");
+        if (f == NULL) {
+            printf("FileOpenError %s", filename);
+            exit(1);
+        }
+        fprintf(f, "%zu; %.3f\n", size, time);
+        fclose(f);
+    } else {
+        printf("Wrong !\n");
 
-void test_findSpace_allElementsIsntSpace() {
-    char s[8] = "abcdefg";
-    char *symbol = findSpace_(&s[0]);
-    assert(symbol == &s[7]);
-}
+        // вывод массива, который не смог быть отсортирован
+        outputArray_(innerBuffer, size);
 
-void test_test_findNonSpaceReverse_firstSymbolRightNotSpace() {
-    char s[7] = "abc de";
-    char *symbol = findNonSpaceReverse_(&s[5], &s[-1]);
-    assert(symbol == &s[5]);
-}
-
-void test_test_findNonSpaceReverse_afterFirstElementRightNotSpace() {
-    char s[13] = "abs pasca   ";
-    char *symbol = findNonSpaceReverse_(&s[11], &s[-1]);
-    assert(symbol == &s[8]);
-}
-
-void test_test_findNonSpaceReverse_allElementsIsSpace() {
-    char s[8] = "       ";
-    char *symbol = findNonSpaceReverse_(&s[6], &s[-1]);
-    assert(symbol == &s[-1]);
-}
-
-void test_findSpaceReverse_firstSpace() {
-    char s[14] = "aa aa aaaaaaa ";
-    char *symbol = findSpaceReverse_(&s[14], &s[-1]);
-    assert(symbol == &s[13]);
-}
-
-void test_findSpaceReverse_afterFirstElementSpace() {
-    char s[10] = "1 2 3 4 5 ";
-    char *symbol = findSpaceReverse_(&s[25], &s[-1]);
-    assert(symbol == &s[9]);
-}
-
-void test_findSpaceReverse_allElementsNonSpace() {
-    char s[8] = "abcdefg";
-    char *symbol = findSpaceReverse_(&s[6], &s[-1]);
-    assert(symbol == &s[-1]);
+        exit(1);
+    }
 }
 
 
-void test_strcmp_lhsMoreThenRhs() {
-    char s1[5] = "abcd";
-    char s2[3] = "ab";
-    assert(strcmp_(s1, s2) > 0);
+void timeExperiment() {
+    // описание функций сортировки
+    SortFunc sorts[] = {
+            {selectionSort, "selectionSort"},
+            {insertionSort, "insertionSort"},
+            {bubbleSort,    "bubbleSort"},
+            {combSort,      "combSort"},
+            {shellSort,     "shellSort"},
+            {radixSort, "radixSort"}
+    };
+    const unsigned FUNCS_N = ARRAY_SIZE(sorts);
+
+// описание функций генерации
+    GeneratingFunc generatingFuncs[] = {
+// генерируется случайный массив
+            {generateRandomArray,      "random"},
+// генерируется массив 0, 1, 2, ..., n - 1
+            {generateOrderedArray,     "ordered"},
+// генерируется массив n - 1, n - 2, ..., 0
+            {generateOrderedBackwards, "orderedBackwards"}
+    };
+    const unsigned CASES_N = ARRAY_SIZE(generatingFuncs);
+
+// запись статистики в файл
+    for (size_t size = 10000; size <= 100000; size += 10000) {
+        printf(" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n");
+        printf(" Size : %lld\n", size);
+        for (int i = 0; i < FUNCS_N; i++) {
+            for (int j = 0; j < CASES_N; j++) {
+                // генерация имени файла
+                static char filename[128];
+                sprintf(filename, "%s_%s_time ", sorts[i].name, generatingFuncs[j].name);
+                checkTime(sorts[i].sort, generatingFuncs[j].generate, size, filename);
+            }
+        }
+        printf("\n");
+    }
 }
 
-void test_strcmp_rhsMoreThenlhs() {
-    char s1[3] = "ab";
-    char s2[5] = "abcd";
-    assert(strcmp_(s1, s2) < 0);
-}
-
-void test_strcmp_lhsEqualRhs() {
-    char s1[5] = "abcd";
-    char s2[5] = "abcd";
-    assert(strcmp_(s1, s2) == 0);
-}
-
-void test_copy_allSymbol() {
-    char s1[6] = "hello";
-    char s2[10];
-    char *a = copy_(&s1[0], &s1[5], s2);
-    assert(s2[0] == 'h');
-    assert(s2[1] == 'e');
-    assert(s2[2] == 'l');
-    assert(s2[3] == 'l');
-    assert(s2[4] == 'o');
-    assert(&s2[5] == a);
-}
-
-void test_copyIf_allElementsMatchCondition() {
-    char s1[4] = "246";
-    char s2[4];
-    char *a = copyIf_(&s1[0], &s1[2], s2, isEvenSymbol);
-    assert(s2[0] == '2');
-    assert(s2[1] == '4');
-    assert(&s2[2] == a);
-}
-
-void test_copyIf_allElementsNotSatisfyCondition() {
-    char s1[4] = "134";
-    char s2[4];
-    char s3[4];
-    char *a = copy_(&s2[0], &s2[2], s3);
-    char *b = copyIf_(&s1[0], &s1[2], s2, isEvenSymbol);
-    assert(s2[0] == s3[0]);
-    assert(s2[1] == s3[1]);
-    assert(&s2[0] == b);
-}
-
-void test_copyIf_randomElements() {
-    char s1[7] = "123456";
-    char s2[4];
-    char *a = copyIf_(&s1[0], &s1[5], s2, isEvenSymbol);
-    assert(s2[0] == '2');
-    assert(s2[1] == '4');
-    assert(&s2[2] == a);
-}
-
-void test_copyIfReverse_allElementsMatchCondition() {
-    char s1[4] = "246";
-    char s2[4];
-    char *a = copyIfReverse_(&s1[2], &s1[0], s2, isEvenSymbol);
-    assert(s2[0] == '6');
-    assert(s2[1] == '4');
-    assert(&s2[2] == a);
-}
-
-void test_copyIfReverse_allElementsNotSatisfyCondition() {
-    char s1[4] = "135";
-    char s2[4];
-    char s3[4];
-    char *a = copy_(&s2[0], &s2[2], s3);
-    char *b = copyIfReverse_(&s1[2], &s1[0], s2, isEvenSymbol);
-    assert(s2[0] == s3[0]);
-    assert(s2[1] == s3[1]);
-    assert(&s2[0] == b);
-}
-
-void test_copyIfReverse_mixedElements() {
-    char s1[7] = "123456";
-    char s2[4];
-    char *a = copyIfReverse_(&s1[5], &s1[0], s2, isEvenSymbol);
-
-    assert(s2[0] == '6');
-    assert(s2[1] == '4');
-    assert(s2[2] == '2');
-    assert(&s2[3] == a);
-}
-
-
-void test_libs_string() {
-    //
-    test_strlen();
-    test_strlen_zeroElements();
-    //
-    test_find_notRepeatingElements();
-    test_find_withRepeatingElementsNotNormal();
-    //
-    test_findNonSpace_firstElementNonSpace();
-    test_findNonSpace_afterFirstElementNonSpace();
-    test_findNonSpace_allElementsIsSpace();
-    //
-    test_findSpace_firstSpace();
-    test_findSpace_SecondElementSpace();
-    test_findSpace_allElementsIsntSpace();
-    //
-    test_test_findNonSpaceReverse_firstSymbolRightNotSpace();
-    test_test_findNonSpaceReverse_afterFirstElementRightNotSpace();
-    test_test_findNonSpaceReverse_allElementsIsSpace();
-    //
-    test_findSpaceReverse_firstSpace();
-    test_findSpaceReverse_afterFirstElementSpace();
-    test_findSpaceReverse_allElementsNonSpace();
-    //
-    test_strcmp_lhsMoreThenRhs();
-    test_strcmp_rhsMoreThenlhs();
-    test_strcmp_lhsEqualRhs();
-    //
-    test_copy_allSymbol();
-    //
-    test_copyIf_allElementsMatchCondition();
-    test_copyIf_allElementsNotSatisfyCondition();
-    test_copyIf_randomElements();
-    //
-    test_copyIfReverse_allElementsMatchCondition();
-    test_copyIfReverse_allElementsNotSatisfyCondition();
-    test_copyIfReverse_mixedElements();
-    //
-}
-
-
-void test_tasks(){
-    test_removeNonLetters(); // 1
-    test_removeExtraSpaces(); // 2
-    test_removeNumbersAndLetters_(); // 3
-    test_replacementNumbersToSpaces(); // 4
-    //test_replace(); //5
-    test_areLexicographicallyOrdered(); //6 просто assert
-    test_printReverseWordsOnRows(); // 7 // input: "Hello word!"
-    test_getTotalPalindromesWords(); // 8
-    test_alternatingWords(); // 9
-    test_reverseWord(); // 10
-    test_getWordBeforeFirstWordWithA(); // 11
-    test_getLastWordFirstStringWitchFoundInSecond();//12
-    test_isStringWithCoupleEqualWords(); // 13
-    test_task14();// 14
-    test_getStringWithWordsNonEqualOfLast(); // 15
-
-    test_deleteWordFromString_oneWord(); //17
-    test_additionSmallerString();
-    test_isStringWithAllLettersOfWord(); //19
-}
 
 int main() {
-    test_libs_string();
-    test_tasks();
+    timeExperiment();
 
     return 0;
 }

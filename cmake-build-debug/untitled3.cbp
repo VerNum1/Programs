@@ -194,6 +194,12 @@
 		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/algorithms/array/array.h">
 			<Option target="algorithms"/>
 		</Unit>
+		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/algorithms/array/sort.c">
+			<Option target="algorithms"/>
+		</Unit>
+		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/algorithms/array/sort.h">
+			<Option target="algorithms"/>
+		</Unit>
 		<Unit filename="C:/Users/vadim/CLionProjects/untitled3/libs/data_structures/bitset/bitset.c">
 			<Option target="data_structures"/>
 		</Unit>

@@ -177,6 +177,30 @@ array/array.c.s:
 	cd /d C:\Users\vadim\CLionProjects\untitled3\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\algorithms\CMakeFiles\algorithms.dir\build.make libs/algorithms/CMakeFiles/algorithms.dir/array/array.c.s
 .PHONY : array/array.c.s
 
+array/sort.obj: array/sort.c.obj
+.PHONY : array/sort.obj
+
+# target to build an object file
+array/sort.c.obj:
+	cd /d C:\Users\vadim\CLionProjects\untitled3\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\algorithms\CMakeFiles\algorithms.dir\build.make libs/algorithms/CMakeFiles/algorithms.dir/array/sort.c.obj
+.PHONY : array/sort.c.obj
+
+array/sort.i: array/sort.c.i
+.PHONY : array/sort.i
+
+# target to preprocess a source file
+array/sort.c.i:
+	cd /d C:\Users\vadim\CLionProjects\untitled3\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\algorithms\CMakeFiles\algorithms.dir\build.make libs/algorithms/CMakeFiles/algorithms.dir/array/sort.c.i
+.PHONY : array/sort.c.i
+
+array/sort.s: array/sort.c.s
+.PHONY : array/sort.s
+
+# target to generate assembly for a file
+array/sort.c.s:
+	cd /d C:\Users\vadim\CLionProjects\untitled3\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\algorithms\CMakeFiles\algorithms.dir\build.make libs/algorithms/CMakeFiles/algorithms.dir/array/sort.c.s
+.PHONY : array/sort.c.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -192,6 +216,9 @@ help:
 	@echo ... array/array.obj
 	@echo ... array/array.i
 	@echo ... array/array.s
+	@echo ... array/sort.obj
+	@echo ... array/sort.i
+	@echo ... array/sort.s
 .PHONY : help
 
 

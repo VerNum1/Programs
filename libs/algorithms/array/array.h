@@ -6,21 +6,19 @@
 // ввод массива data размера n
 void inputArray_(int *a, size_t n);
 
-// вывод массива data размера n
-void outputArray_(const int *a, size_t n);
 
 // возвращает значение первого вхождения элемента x
 // в массиве a размера n при его наличии, иначе - n
-size_t linearSearch_(const int *a, const size_t n, int x);
+size_t linearSearch_(const int *a, size_t n, int x);
 
 // возвращает позицию вхождения элемента x
 // в отсортированном массиве a размера n при его наличии, иначе - SIZE_MAX
-size_t binarySearch_(const int *a, const size_t n, int x);
+size_t binarySearch_(const int *a, size_t n, int x);
 
 // возвращает позицию первого элемента равного или большего x
 // в отсортированном массиве a размера n
 // при отсутствии такого элемента возвращает n
-size_t binarySearchMoreOrEqual_(const int *a, const size_t n, int x);
+size_t binarySearchMoreOrEqual_(const int *a, size_t n, int x);
 
 // вставка элемента со значением value
 // в массив data размера n на позицию pos
