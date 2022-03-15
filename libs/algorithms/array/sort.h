@@ -31,6 +31,19 @@ void radixSort_(int *a, int *n);
 
 void radixSort(int *a, size_t n);
 
+long long getBubbleSortNComp(int *a, size_t n);
+
+long long getSelectionSortNComp(int *a, size_t n);
+
+long long getInsertionSortNComp(int *a, size_t n);
+
+long long getCombSortNComp(int *a, size_t n);
+
+long long getShellSortNComp(int *a, size_t n);
+
+long long getRadixSortNComps_(int *a, int *n);
+long long getRadixSortNComps(int *a, int n);
+
 // генерация массива от i до n с шагом 1
 void generateOrderedArray(int *a, size_t n);
 

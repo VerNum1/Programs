@@ -71,7 +71,6 @@ void checkTime(void (*sortFunc)(int *, size_t),
     }
 }
 
-
 void timeExperiment() {
     // описание функций сортировки
     SortFunc sorts[] = {
@@ -80,7 +79,7 @@ void timeExperiment() {
             {bubbleSort,    "bubbleSort"},
             {combSort,      "combSort"},
             {shellSort,     "shellSort"},
-            {radixSort, "radixSort"}
+            {radixSort,     "radixSort"}
     };
     const unsigned FUNCS_N = ARRAY_SIZE(sorts);
 
@@ -111,9 +110,77 @@ void timeExperiment() {
     }
 }
 
+void checkComps(long long (*sortFunc)(int *, size_t),
+               void (*generateFunc)(int *, size_t),
+               size_t size) {
+    static size_t runCounter = 1;
+
+    // генерация последовательности
+    static int innerBuffer[100000];
+    generateFunc(innerBuffer, size);
+    printf("Run #%zu | ", runCounter++);
+
+    long long comps = sortFunc(innerBuffer, size);
+
+
+    // результаты замера
+    printf("Status:  ");
+    if (isOrdered(innerBuffer, size)) {
+        printf("OK!\n");
+
+        printf("%zu; %lld\n", size, comps);
+    }else
+        printf("NO!\n");
+}
+
+
+
+typedef struct SortFunc_ {
+    long long (*sort )(int *a, size_t n); // указатель на функцию сортировки
+    char name[64]; // имя сортировки, используемое при выводе
+} SortFunc_;
+
+void compsExperiment() {
+    // описание функций сортировки
+    SortFunc_ sorts[] = {
+            {getSelectionSortNComp, "selectionSort"},
+            {getInsertionSortNComp, "insertionSort"},
+            {getBubbleSortNComp,    "bubbleSort"},
+            {getCombSortNComp,      "combSort"},
+            {getShellSortNComp,     "shellSort"},
+            {getRadixSortNComps,     "radixSort"}
+    };
+    const unsigned FUNCS_N = ARRAY_SIZE(sorts);
+
+// описание функций генерации
+    GeneratingFunc generatingFuncs[] = {
+// генерируется случайный массив
+            {generateRandomArray,      "random"},
+// генерируется массив 0, 1, 2, ..., n - 1
+            {generateOrderedArray,     "ordered"},
+// генерируется массив n - 1, n - 2, ..., 0
+            {generateOrderedBackwards, "orderedBackwards"}
+    };
+    const unsigned CASES_N = ARRAY_SIZE(generatingFuncs);
+
+// запись статистики в файл
+    for (size_t size = 10000; size <= 100000; size += 10000) {
+        printf(" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n");
+        printf(" Size :  %lld\n", size);
+        for (int i = 0; i < FUNCS_N; i++) {
+            for (int j = 0; j < CASES_N; j++) {
+                // генерация имени файла
+                static char filename[128];
+                printf("%s_%s_comps ", sorts[i].name, generatingFuncs[j].name);
+                checkComps(sorts[i].sort, generatingFuncs[j].generate, size);
+            }
+        }
+        printf("\n");
+    }
+}
 
 int main() {
-    timeExperiment();
+    compsExperiment();
 
     return 0;
 }
